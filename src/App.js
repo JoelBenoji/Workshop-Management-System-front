@@ -1,12 +1,14 @@
+import { Routes,Route } from 'react-router';
 import './App.css';
-import './Usercreate'
+import Home from './Home';
 import Usercreate from './Usercreate';
 
 function App() {
   return (
-    <div className="App">
-      <Usercreate/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/signup" element={<Usercreate/>}/>
+    </Routes>
   );
 }
 
