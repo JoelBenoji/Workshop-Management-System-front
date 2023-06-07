@@ -4,7 +4,7 @@ export default function Home(){
     return(
         <>
         <h1>Welocme</h1>
-        <button><a href="./signup">Click here</a></button>
+        <a href="./signup">New user? Signup</a>
         </>
     )
 }

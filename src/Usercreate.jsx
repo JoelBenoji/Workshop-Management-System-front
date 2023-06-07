@@ -5,6 +5,7 @@ export default function Usercreate(){
     const [email, setEmail] = useState('');
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
+    const [password, setPassword] = useState('');
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
@@ -25,17 +26,22 @@ export default function Usercreate(){
         setModel(e.target.value);
         setSubmitted(false);
     };
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+        setSubmitted(false);
+    };
     var data = {
         "name": name,
         "email": email,
-        "make" :make,
-        "model": model
+        "password": password,
+        "make" : make.charAt(0).toUpperCase()+ make.slice(1),
+        "model": model.charAt(0).toUpperCase() + model.slice(1)
     }
     const handleSubmit = (e) => {
         e.preventDefault();
         if (name === '' || email === '') {
             setError(true);
-         } 
+        } 
         else {
             fetch("http://localhost:8080/", {
             method: "POST", 
@@ -48,12 +54,17 @@ export default function Usercreate(){
             body: JSON.stringify(data)
             })
             // Converting to JSON
-            .then(response => console.log(response))
+            .then(response => {
+                if(response.status === 200){
+                    setError(false)
+                }
+                else{
+                    setError(true);
+                }
+            })
             // Displaying results to console
-        
-        }
             setSubmitted(true);
-            setError(false);
+        }
         }
 
     const successMessage = () => {
@@ -63,7 +74,7 @@ export default function Usercreate(){
                 style={{
                     display: submitted ? '' : 'none',
                 }}>
-                <h1>User {name} successfully registered!!</h1>
+                <p>User {name} successfully registered!!</p>
             </div>
         );
     };
@@ -76,17 +87,19 @@ export default function Usercreate(){
                 style={{
                     display: error ? '' : 'none',
                 }}>
-                <h1>Please enter all the fields</h1>
+                <p>Please enter all the fields</p>
             </div>
         );
     };
     return(
     <div className='container'>
+        <h1>Sign Up</h1>
           <form>
-            <input onChange={handleName} value={name} type='text' placeholder='name'/>
-            <input onChange={handleEmail} value={email} type='text' placeholder='email'/>
-            <input onChange={handleMake} value={make} type='text' placeholder='make'/>
-            <input onChange={handleModel} value={model} type='text' placeholder='model'/>
+            <input onChange={handleName} value={name} type='text' placeholder='Name'/>
+            <input onChange={handleEmail} value={email} type='text' placeholder='Email'/>
+            <input onChange={handlePassword} value={password} type='text' placeholder='Password'/>
+            <input onChange={handleMake} value={make} type='text' placeholder='Make'/>
+            <input onChange={handleModel} value={model} type='text' placeholder='Model'/>
 
             <button onClick={handleSubmit} type="submit">Submit</button>
           </form>
