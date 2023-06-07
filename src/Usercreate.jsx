@@ -43,7 +43,7 @@ export default function Usercreate(){
             setError(true);
         } 
         else {
-            fetch("http://localhost:8080/", {
+            fetch("http://localhost:8080/signup", {
             method: "POST", 
             mode: "cors",
             // Adding headers to the request
