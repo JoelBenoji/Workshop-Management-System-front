@@ -80,6 +80,7 @@ export default function Usercreate(){
             <input onChange={handleModel} value={model} type='text' placeholder='Model'/>
 
             <button onClick={handleSubmit} type="submit">Submit</button>
+            <a href="/">Back to Log In</a>
           </form>
           <div className="messages">
                 {errorMessage()}
