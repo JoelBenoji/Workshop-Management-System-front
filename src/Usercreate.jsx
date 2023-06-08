@@ -6,29 +6,23 @@ export default function Usercreate(){
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
 
     const handleName = (e) => {
         setName(e.target.value);
-        setSubmitted(false);
     }
     const handleEmail = (e) => {
         setEmail(e.target.value);
-        setSubmitted(false);
     }
     const handleMake = (e) => {
         setMake(e.target.value);
-        setSubmitted(false);
     };
     const handleModel = (e) => {
         setModel(e.target.value);
-        setSubmitted(false);
     };
     const handlePassword = (e) => {
         setPassword(e.target.value);
-        setSubmitted(false);
     };
     var data = {
         "name": name,
@@ -54,43 +48,27 @@ export default function Usercreate(){
             body: JSON.stringify(data)
             })
             // Converting to JSON
-            .then(response => {
-                if(response.status === 200){
-                    setError(false)
+            .then((response)=>response.json()).then((json)=>{
+                console.log(json.Status)
+                if(json.Status === 'Success'){
+                    setError('Successfully Registered');
                 }
                 else{
-                    setError(true);
+                    setError('Invalid details, missing or already exists')
                 }
             })
             // Displaying results to console
-            setSubmitted(true);
         }
         }
-
-    const successMessage = () => {
-        return (
-            <div
-                className="success"
-                style={{
-                    display: submitted ? '' : 'none',
-                }}>
-                <p>User {name} successfully registered!!</p>
-            </div>
-        );
-    };
-
     // Showing error message if error is true
     const errorMessage = () => {
-        return (
-            <div
-                className="error"
-                style={{
-                    display: error ? '' : 'none',
-                }}>
-                <p>Please enter all the fields</p>
-            </div>
-        );
+            return (
+                <div>
+                    {error}
+                </div>
+            );
     };
+
     return(
     <div className='container'>
         <h1>Sign Up</h1>
@@ -105,7 +83,6 @@ export default function Usercreate(){
           </form>
           <div className="messages">
                 {errorMessage()}
-                {successMessage()}
           </div>
     </div>
     )
