@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './styles/signup.css'
 
 export default function Usercreate(){
     const [name, setName] = useState('');
@@ -70,21 +71,23 @@ export default function Usercreate(){
     };
 
     return(
-    <div className='container'>
+    <div className='container-signup'>
+        <div className="signup-card">
         <h1>Sign Up</h1>
           <form>
-            <input onChange={handleName} value={name} type='text' placeholder='Name'/>
-            <input onChange={handleEmail} value={email} type='text' placeholder='Email'/>
-            <input onChange={handlePassword} value={password} type='text' placeholder='Password'/>
-            <input onChange={handleMake} value={make} type='text' placeholder='Make'/>
-            <input onChange={handleModel} value={model} type='text' placeholder='Model'/>
+            <input onChange={handleName} value={name} type='text' placeholder='Name'/><br></br>
+            <input onChange={handleEmail} value={email} type='text' placeholder='Email'/><br></br>
+            <input onChange={handlePassword} value={password} type='text' placeholder='Password'/><br></br>
+            <input onChange={handleMake} value={make} type='text' placeholder='Make'/><br></br>
+            <input onChange={handleModel} value={model} type='text' placeholder='Model'/><br></br>
 
             <button onClick={handleSubmit} type="submit">Submit</button>
-            <a href="/">Back to Log In</a>
+            <a href="/login">Back to Log In</a>
           </form>
           <div className="messages">
                 {errorMessage()}
           </div>
+        </div>
     </div>
     )
     

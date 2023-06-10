@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
+.container-login{
+    margin:0;
+    height: 100vh;
+    overflow: hidden;
+    font-family:'Montserrat';
+    background-color: #1e1e1e;
+    color: #c0c0c0;
+    display:flex;
+}
+.italic{
+    font-style: italic;
+    font-size: 7rem;
+}
+h1{
+    font-size: 5rem;
+    font-weight: 300;
+    font-family: 'Playfair Display';
+    margin: 3vh 0;
+    padding: 0%;
+}
+h2{
+    font-size: 6rem;
+    font-weight: 300;
+    font-family: 'Baskervvile';
+    padding: 0%;
+    margin: 5vh 0;
+}
+.desc{
+    font-family: 'Nunito';
+    font-size: 1.1rem;
+}
+.headings{
+    width:50vw;
+    height: 100vh;
+}
+.headings-text{
+    padding: 0;
+    text-align: center;
+    margin: 35vh 25vh;
+}
+.buttons{
+    display: flex;
+    margin-top: 3vh;
+}
+.buttons button{
+    background-color: #1e1e1e;
+    border:0px;
+    color: #c0c0c0;
+    width: 20vh;
+    height: 5vh;
+    padding: 0 3vh;
+    margin-right: 7vh;
+}
+.buttons a{
+    text-decoration: none;
+    color: #1e1e1e;
+    font-size: 0.8rem;
+    margin-bottom: 1vh;
+}
+button:hover{
+    cursor: pointer;
+}
+.login-card{
+    background-color: #c0c0c0;
+    color: #1e1e1e;
+    width: 45vw;
+    height:100vh;
+    text-align: center;
+}
+.login-cred{
+    margin: 15vh 20vh;
+    height: 70vh;
+}
+input{
+    font-family: 'Nunito';
+}
+.textbox{
+    background-color: #c0c0c0;
+    border: 2px solid #1e1e1e;
+    width:50vh;
+    margin: 3vh 0;
+    height: 5vh;
+    padding: 0 0 0 2vh;
+    font-size: 0.95rem;
+}

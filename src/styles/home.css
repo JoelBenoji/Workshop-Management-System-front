@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+p{
+    margin: 0%;
+}
+.homepage{
+    font-family: 'Nunito';
+    color: #c0c0c0;
+    background-color: #1e1e1e;
+}
+.link{
+    text-decoration: none;
+    color: #c0c0c0;
+}
+.account{
+    margin-left:80vh;
+}
+span{
+    color: #00a97f;
+    font-size: 25vh;
+    font-style: italic;
+}
+.container{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0%;
+} 
+.container-first{
+    text-align: center;
+    padding:25vh 0;
+    overflow-y: hidden ; 
+}
+.container-first h1{
+    font-size: 10rem;
+    font-family: 'Baskervville';
+    margin: 10vh 0% 0 0;
+}
+.container-first p {
+    margin: 20vh 0 0 0;
+    padding: 0%;
+}
+nav{
+    height: 8vh;
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+    width:95vw;
+    margin-left: 2.5vw;
+    margin-top: 2vh;
+    position: fixed;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 2.5vh 5vh;
+}
+nav ul li{
+    margin: 0 3vh;
+    list-style-type: none;
+}
+.book{
+    overflow-y: hidden;
+    padding:20vh 10vh;
+}

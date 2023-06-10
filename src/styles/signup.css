@@ -1,0 +1,16 @@
+.container-signup{
+    background-color: #1e1e1e;
+    margin:0;
+    height: 100vh;
+    color: #c0c0c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-card{
+    background-color: #c0c0c0;
+    color: #1e1e1e;
+    width: 50vw;
+    height: 90vh;
+    text-align: center;
+}
