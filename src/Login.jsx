@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { json, useNavigate } from "react-router";
 import './styles/login.css'
 
 export default function Usercreate(){
@@ -52,7 +52,7 @@ export default function Usercreate(){
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
-                navigate("/dashboard",{})
+                navigate("/dashboard",{state:{Name: name, Make:make, Model:model}})
             }
             else{
                 setError(true)
