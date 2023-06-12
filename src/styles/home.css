@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
 html{
     scroll-behavior: smooth;
 }
@@ -8,14 +8,14 @@ p{
 .homepage{
     font-family: 'Nunito';
     color: #c0c0c0;
-    background-color: #1e1e1e;
+    z-index:-1;
 }
 .link{
     text-decoration: none;
     color: #c0c0c0;
 }
 .account{
-    margin-left:80vh;
+    margin-left:70vh;
 }
 span{
     color: #00a97f;
@@ -29,17 +29,29 @@ span{
 } 
 .container-first{
     text-align: center;
-    padding:25vh 0;
-    overflow-y: hidden ; 
+    padding:25vh 0 0 0;
+    overflow-y: hidden ;
+    height: 80vh;
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+.bg{
+    background-color: #1e1e1e;
+}
+video{
+    width: 100vw;
+    z-index: -1;
+    position: absolute;
 }
 .container-first h1{
     font-size: 10rem;
     font-family: 'Baskervville';
-    margin: 10vh 0% 0 0;
+    margin: 6vh 0 5vh 0;
+    z-index: 1;
 }
 .container-first p {
     margin: 20vh 0 0 0;
     padding: 0%;
+    z-index:1;
 }
 nav{
     height: 8vh;
@@ -57,10 +69,17 @@ nav ul{
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding: 2.5vh 5vh;
+    padding: 1.5vh 3vh;
+}
+.logo{
+    font-family: 'Great Vibes';
+    font-size: 2rem;
+}
+.logo span{
+    font-size: 2rem;
 }
 nav ul li{
-    margin: 0 3vh;
+    margin: 0 3.5vh;
     list-style-type: none;
 }
 .book{

@@ -77,7 +77,7 @@ export default function Usercreate(){
     <div className="container-login">
         <div className="headings">
         <div className='headings-text'>
-            <h2>[ mec<span className="italic">X</span> ]</h2>
+            <h2>mec<span className="italic">X</span></h2>
             <p>The mechanical expert</p>    
         </div>
         </div>
@@ -91,7 +91,7 @@ export default function Usercreate(){
 
             <div className="buttons">
                 <button onClick={handleSubmit} type="submit">Submit</button>
-                <p><a href="/signup">Click here to sign up</a></p>
+                <p><a href="/signup">Dont have an account? Click here to sign up</a></p>
             </div>
           </form>
           <div className="messages">

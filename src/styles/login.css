@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
 .container-login{
     margin:0;
     height: 100vh;
     overflow: hidden;
     font-family:'Montserrat';
-    background-color: #1e1e1e;
+    background: linear-gradient(to bottom, transparent 0% , black 100%), url('../Images/regform.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
     color: #c0c0c0;
     display:flex;
 }
@@ -13,18 +15,18 @@
     font-size: 7rem;
 }
 h1{
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 300;
     font-family: 'Playfair Display';
-    margin: 3vh 0;
+    margin: 3vh 0 0 3vh;
     padding: 0%;
 }
 h2{
     font-size: 6rem;
     font-weight: 300;
-    font-family: 'Baskervvile';
+    font-family: 'Great Vibes';
     padding: 0%;
-    margin: 5vh 0;
+    margin: 5vh 0 0 0;
 }
 .desc{
     font-family: 'Nunito';
@@ -40,17 +42,16 @@ h2{
     margin: 35vh 25vh;
 }
 .buttons{
-    display: flex;
     margin-top: 3vh;
 }
 .buttons button{
     background-color: #1e1e1e;
     border:0px;
     color: #c0c0c0;
-    width: 20vh;
+    width: 52vh;
     height: 5vh;
-    padding: 0 3vh;
-    margin-right: 7vh;
+    padding: 0 10vh;
+    margin-bottom: 15vh;
 }
 .buttons a{
     text-decoration: none;
