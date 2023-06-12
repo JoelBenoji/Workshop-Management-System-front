@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { json, useNavigate } from "react-router";
 import './styles/login.css'
+import logo from './Images/output.png'
 
 export default function Usercreate(){
     const [email, setEmail] = useState('');
@@ -77,7 +78,8 @@ export default function Usercreate(){
     <div className="container-login">
         <div className="headings">
         <div className='headings-text'>
-            <h2>mec<span className="italic">X</span></h2>
+            <img src={logo} className='logo-login' alt='logo'/>
+            <h2>M . E . C . X</h2>
             <p>The mechanical expert</p>    
         </div>
         </div>

@@ -21,12 +21,14 @@ h1{
     margin: 3vh 0 0 3vh;
     padding: 0%;
 }
-h2{
-    font-size: 6rem;
-    font-weight: 300;
-    font-family: 'Great Vibes';
-    padding: 0%;
-    margin: 5vh 0 0 0;
+.logo-login{
+    width: 40vh;
+    margin:0;
+    transform: translateX(0vh);
+}
+.headings-text h2{
+    font-family: 'Baskervville';
+    font-size: 2rem;
 }
 .desc{
     font-family: 'Nunito';
@@ -39,7 +41,7 @@ h2{
 .headings-text{
     padding: 0;
     text-align: center;
-    margin: 35vh 25vh;
+    margin: 20vh 25vh;
 }
 .buttons{
     margin-top: 3vh;

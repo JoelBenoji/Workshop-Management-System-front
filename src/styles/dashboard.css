@@ -15,9 +15,18 @@
     font-size: 7rem;
     margin: 0% 3vh;
 }
-.cardeets{
-    width:37vh;
-    height: 37vh;
+.heading{
+    display: flex;
+}
+.heading button{
+    margin: 9vh 0vh 9vh 50vh;
+    width:  20vh;
+}
+.cards{
+    display: flex;
+    width: 100vw;
+}
+.card{
     padding: 1vh 3vh;
     margin:  5vh 0 0 3vh;
     background: rgba(192, 192, 192, 0.11);
@@ -28,10 +37,19 @@
     color: #c0c0c0;
     font-family: 'Nunito';
 }
-.cardeets h3{
-    font-family:'Playfair Display';
+.cardeets{
+    width:37vh;
+    height: 37vh;
+}
+.card h3{
+    font-family:'Montserrat';
     font-size: 3rem;
+    margin-top: 5vh;
 }
 .cardeets p{
     margin-bottom: 4vh;
+}
+.appointments{
+    width: 100vh;
+    height: 37vh;
 }

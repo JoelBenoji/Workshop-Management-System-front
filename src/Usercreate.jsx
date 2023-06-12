@@ -26,7 +26,7 @@ export default function Usercreate(){
         setPassword(e.target.value);
     };
     var data = {
-        "name": name,
+        "name": name.charAt(0).toUpperCase() + make.slice(1),
         "email": email,
         "password": password,
         "make" : make.charAt(0).toUpperCase()+ make.slice(1),
@@ -74,7 +74,7 @@ export default function Usercreate(){
     <div className='container-signup'>
         <div className="signup-card">
         <h1>Sign Up</h1>
-        <p>Create an account</p>
+        <p>Fill in the form to create an account.</p>
           <form>
             <input onChange={handleName} value={name} type='text' placeholder='Name'/><br></br>
             <input onChange={handleEmail} value={email} type='text' placeholder='Email'/><br></br>

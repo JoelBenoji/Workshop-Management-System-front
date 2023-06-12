@@ -18,10 +18,16 @@ export default function Dashboard(){
                 <h2>Welcome,<span> {log.Name}</span></h2>
                 <button onClick={nav}>Log Out</button>
             </div>
-            <div className="cardeets">
+            <div className="cards">
+            <div className="card cardeets">
                 <h3>Your Car</h3>
             <p><b>Make</b>:     {log.Make}</p>
             <p><b>Model</b>:   {log.Model}</p>
+            </div>
+            <div className="card appoinments">
+                <h3>Your Appointments</h3>
+                <p>Coming soon</p>
+            </div>
             </div>
         </div>
     )
