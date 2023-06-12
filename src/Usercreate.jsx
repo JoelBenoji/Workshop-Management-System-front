@@ -9,7 +9,7 @@ export default function Usercreate(){
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-
+    //
     const handleName = (e) => {
         setName(e.target.value);
     }
@@ -74,6 +74,7 @@ export default function Usercreate(){
     <div className='container-signup'>
         <div className="signup-card">
         <h1>Sign Up</h1>
+        <p>Create an account</p>
           <form>
             <input onChange={handleName} value={name} type='text' placeholder='Name'/><br></br>
             <input onChange={handleEmail} value={email} type='text' placeholder='Email'/><br></br>
@@ -81,7 +82,7 @@ export default function Usercreate(){
             <input onChange={handleMake} value={make} type='text' placeholder='Make'/><br></br>
             <input onChange={handleModel} value={model} type='text' placeholder='Model'/><br></br>
 
-            <button onClick={handleSubmit} type="submit">Submit</button>
+            <button onClick={handleSubmit} type="submit">Submit</button><br></br>
             <a href="/login">Back to Log In</a>
           </form>
           <div className="messages">

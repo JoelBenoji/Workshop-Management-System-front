@@ -17,6 +17,12 @@ p{
 .account{
     margin-left:70vh;
 }
+img{
+    width: 7vh;
+    margin: -2vh 0 0 0;
+    transform: translate(-2vh,1.5vh);
+    padding: 0;
+}
 span{
     color: #00a97f;
     font-size: 25vh;
@@ -54,14 +60,14 @@ video{
     z-index:1;
 }
 nav{
-    height: 8vh;
+    height: 9vh;
     background: rgba( 255, 255, 255, 0.2 );
     backdrop-filter: blur( 2px );
     -webkit-backdrop-filter: blur( 2px );
     border-radius: 10px;
     width:95vw;
     margin-left: 2.5vw;
-    margin-top: 2vh;
+    margin-top: 1.5vh;
     position: fixed;
 }
 nav ul{
@@ -70,13 +76,6 @@ nav ul{
     justify-content: center;
     margin: 0;
     padding: 1.5vh 3vh;
-}
-.logo{
-    font-family: 'Great Vibes';
-    font-size: 2rem;
-}
-.logo span{
-    font-size: 2rem;
 }
 nav ul li{
     margin: 0 3.5vh;

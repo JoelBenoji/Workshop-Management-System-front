@@ -1,5 +1,6 @@
 .container-signup{
-    background-color: #1e1e1e;
+    background:linear-gradient(to bottom, transparent 0% , black 100%), url('../Images/tires.jpeg');
+    background-size: cover;
     margin:0;
     height: 100vh;
     color: #c0c0c0;
@@ -13,4 +14,35 @@
     width: 50vw;
     height: 90vh;
     text-align: center;
+}
+.signup-card h1{
+    margin-bottom: 2vh;
+}
+.signup-card p{
+    font-family: 'Nunito';
+}
+.signup-card a{
+    text-decoration: none;
+    color: #1e1e1e;
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+}
+form{
+    margin-top:7vh;
+}
+input{
+    background-color: #c0c0c0;
+    border: 1px solid #1e1e1e;
+    width: 50vh;
+    height: 1vh;
+    padding: 2vh;
+    margin-bottom: 3vh;
+}
+button{
+    background-color: #1e1e1e;
+    color: #c0c0c0;
+    border: 0;
+    width: 54.5vh;
+    height: 5vh;
+    margin-bottom: 3vh;
 }

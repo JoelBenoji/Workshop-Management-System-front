@@ -1,6 +1,7 @@
 import './styles/home.css'
 import { motion } from 'framer-motion'
 import video from './Videos/homevideo.mp4'
+import logo from './Images/output.png'
 
 export default function Home(){
     return(
@@ -13,7 +14,7 @@ export default function Home(){
         transition={{ease:"easeOut",duration:1}}
         >
             <ul>
-                <li className='logo'>mec<span>X</span></li>
+                <li className='logo'><img src={logo} alt='logo'/></li>
                 <li><a href='#home' className='link'>Home</a></li>
                 <li><a href='#about' className='link'>Who we are</a></li>
                 <li><a href='#services' className='link'>What we do</a></li>
