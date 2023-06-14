@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './styles/signup.css'
+import { useNavigate } from "react-router";
 
 export default function Usercreate(){
     const [name, setName] = useState('');
@@ -8,6 +9,7 @@ export default function Usercreate(){
     const [model, setModel] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     //
     const handleName = (e) => {
@@ -53,6 +55,7 @@ export default function Usercreate(){
                 console.log(json.Status)
                 if(json.Status === 'Success'){
                     setError('Successfully Registered');
+                    navigate('/login')
                 }
                 else{
                     setError('Invalid details, missing or already exists')
