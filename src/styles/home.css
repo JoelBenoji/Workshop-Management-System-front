@@ -28,10 +28,18 @@ span{
     font-size: 25vh;
     font-style: italic;
 }
+h2{
+    font-family: 'Baskervville';
+    font-size: 6rem;
+}
 .container{
-    height: 100vh;
-    overflow: hidden;
     margin: 0%;
+    height: 100vh;
+    width: 80vw;
+    overflow: hidden;
+    transform: translateY(100vh);
+    padding: 10vh 10vw 10vh 10vw;
+    overflow: hidden;
 } 
 .container-first{
     text-align: center;
@@ -39,6 +47,11 @@ span{
     overflow-y: hidden ;
     height: 80vh;
     background: linear-gradient(to bottom, transparent 0%, black 100%);
+    position: fixed;
+    margin: 0%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 .bg{
     background-color: #1e1e1e;
@@ -46,18 +59,18 @@ span{
 video{
     width: 100vw;
     z-index: -1;
-    position: absolute;
+    position: fixed;
 }
 .container-first h1{
     font-size: 10rem;
     font-family: 'Baskervville';
     margin: 6vh 0 5vh 0;
-    z-index: 1;
+    z-index: 2;
 }
 .container-first p {
     margin: 20vh 0 0 0;
     padding: 0%;
-    z-index:1;
+    z-index:2;
 }
 nav{
     height: 9vh;
@@ -69,6 +82,7 @@ nav{
     margin-left: 2.5vw;
     margin-top: 1.5vh;
     position: fixed;
+    z-index:3;
 }
 nav ul{
     display: flex;
@@ -80,8 +94,4 @@ nav ul{
 nav ul li{
     margin: 0 3.5vh;
     list-style-type: none;
-}
-.book{
-    overflow-y: hidden;
-    padding:20vh 10vh;
 }
