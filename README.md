@@ -26,11 +26,13 @@ Front end code repository for a Workshop Management System, which can be used fo
 <img alt="Signup MecX" src = "https://github.com/notarjunvijayan/Workfront-front/assets/85212070/b20072e2-46fe-4558-a205-2a584d8b0d73" width ="1000"/>
 
 ## Credits
+<img alt='Arjun Vijayan' src='https://avatars.githubusercontent.com/u/85212070?v=4' width='200'/>
 Arjun Vijayan
-![](https://avatars.githubusercontent.com/u/85212070?v=4)
+
 Github Profile: https://github.com/notarjunvijayan
 
+<img alt='Joel Benoji' src='https://avatars.githubusercontent.com/u/76684523?v=4' width='200'/>
 Joel Benoji
-![](https://avatars.githubusercontent.com/u/76684523?v=4)
+
 Github Profile: https://github.com/JoelBenoji
 
