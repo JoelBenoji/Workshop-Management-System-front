@@ -41,21 +41,21 @@ export default function Home(){
             <motion.p style={{opacity: opacityDown}}>Scroll down to learn more</motion.p>
         </motion.section>
         <section className='container about bg' id='about'>
-            <h2>Who we are</h2>
+            <h2>Who we <span>are</span></h2>
             At mecX, we're changing the way you service your car. With our convenient online platform, you can schedule appointments, track progress, and access top-quality car services from anywhere. Our certified technicians and transparent pricing ensure a hassle-free experience. Join mecX today and discover the future of car servicing.
         </section>
         <section className='container services bg' id='services'>
-            <h2>What we do</h2>
+            <h2>What we <span>do</span></h2>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia accusamus sed veniam, repellendus quo temporibus! Quis debitis dolore consequuntur repudiandae! Perferendis illo 
             tempore tenetur quis nisi optio accusantium quia adipisci neque vitae aperiam, ducimus at dolorem dolores, error harum laborum recusandae hic quisquam suscipit
              doloribus dolor vel praesentium? Est, maxime.
         </section>
         <section className='container book bg' id='book'>
-            <h2>Book Now</h2>
+            <h2>Book <span>Now</span></h2>
             <p>Want to book an Appointment with us?. <br></br>Click the button below</p>
         </section>
         <section className='container contact bg' id='contact'>
-            <h2>Contact Us</h2>
+            <h2>Contact <span>Us</span></h2>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia accusamus sed veniam, repellendus quo temporibus! Quis debitis dolore consequuntur repudiandae! Perferendis illo 
             tempore tenetur quis nisi optio accusantium quia adipisci neque vitae aperiam, ducimus at dolorem dolores, error harum laborum recusandae hic quisquam suscipit
              doloribus dolor vel praesentium? Est, maxime.
