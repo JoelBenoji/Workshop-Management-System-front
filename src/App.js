@@ -5,6 +5,7 @@ import Usercreate from './Usercreate';
 import Home from './Home';
 import Dashboard from './Dashboard';
 import Emplog from "./Emplog";
+import Empdashboard from './Empdashboard';
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       <Route path="/user/login" element={<Login/>}/>
       <Route path="/emp/login" element={<Emplog/>}/>
       <Route path="/signup" element={<Usercreate/>}/>
-      <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/user/dashboard' element={<Dashboard/>}/>
+      <Route path='/emp/dashboard' element={<Empdashboard/>}/>
     </Routes>
   );
 }
