@@ -36,3 +36,9 @@ Joel Benoji
 
 Github Profile: https://github.com/JoelBenoji
 
+<img alt='Ameesha Augustine' src='https://avatars.githubusercontent.com/u/84309733?s=400&v=4' width='200'/>
+Ameesha Augustine
+
+Github Profile: https://github.com/AmeeshaAugustine
+
+
