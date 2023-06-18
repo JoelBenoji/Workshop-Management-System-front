@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './styles/signup.css'
 import { useNavigate } from "react-router";
 
@@ -9,9 +9,32 @@ export default function Usercreate(){
     const [model, setModel] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [makes, setMakes] = useState([]);
+    const [selected, setSelected] = useState(makes[0]);
+
     const navigate = useNavigate();
 
-    //
+    //Handles
+    useEffect(()=>{
+        fetch('http://localhost:8080/signup/make', {
+        method:"get",
+        mode: "cors",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    }).then(
+        response=>(response.json())
+    ).then(
+        json=>{
+            if(json.Makes!== []){
+                setMakes(json.Makes);
+            }
+        }
+    )
+    },[])
+
+
+
     const handleName = (e) => {
         setName(e.target.value);
     }
@@ -20,6 +43,7 @@ export default function Usercreate(){
     }
     const handleMake = (e) => {
         setMake(e.target.value);
+        setSelected(e.target.value);
     };
     const handleModel = (e) => {
         setModel(e.target.value);
@@ -82,11 +106,17 @@ export default function Usercreate(){
             <input onChange={handleName} value={name} type='text' placeholder='Name'/><br></br>
             <input onChange={handleEmail} value={email} type='text' placeholder='Email'/><br></br>
             <input onChange={handlePassword} value={password} type='text' placeholder='Password'/><br></br>
-            <input onChange={handleMake} value={make} type='text' placeholder='Make'/><br></br>
+            <div className="select">
+            <select value={selected} onChange={handleMake}>
+              {makes.map((item) => {
+                  return (<option>{item}</option>);
+              })}
+            </select>
+            </div>
             <input onChange={handleModel} value={model} type='text' placeholder='Model'/><br></br>
 
             <button onClick={handleSubmit} type="submit">Submit</button><br></br>
-            <a href="/login">Back to Log In</a>
+            <a href="user/login">Back to Log In</a>
           </form>
           <div className="messages">
                 {errorMessage()}

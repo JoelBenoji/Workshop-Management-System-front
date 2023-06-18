@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
-import { json, useNavigate } from "react-router";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import './styles/login.css'
 import logo from './Images/output.png'
 
 export default function Usercreate(){
-    const [email, setEmail] = useState('');
+    const [empid, setEmp] = useState();
     const [password, setPassword] = useState('');
     const[success,setSuccess] = useState('')
-    const [make,setMake] = useState('') 
-    const [model,setModel] = useState('');
+    const [phone,setPhone] = useState('') 
     const [name,setName] = useState('');
+
     const navigate = useNavigate();
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
 
     const handleEmail = (e) => {
-        setEmail(e.target.value);
+        setEmp(parseInt(e.target.value));
         setSubmitted(false);
     }
     const handlePassword = (e) => {
@@ -24,16 +24,16 @@ export default function Usercreate(){
         setSubmitted(false);
     };
     var data = {
-        "email": email,
-        "password": password,
+        "Empid": empid,
+        "Password": password,
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (data.email === '' || data.password === '') {
+        if (data.Empid === '' || data.Password === '') {
             setError(true);
         } 
         else {
-            fetch("http://localhost:8080/", {
+            fetch("http://localhost:8080/emplogin", {
             method: "POST", 
             mode: "cors",
             // Adding headers to the request
@@ -46,14 +46,14 @@ export default function Usercreate(){
             // Converting to JSON
             .then(response =>response.json()).then((json) => {
                 setSuccess(json.Success)
-                setMake(json.Make)
-                setModel(json.Model)
+                setPhone(json.Phone)
                 setName(json.Name)
             })
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
-                navigate("/dashboard",{state:{Name: name, Make:make, Model:model}})
+                setError(false);
+                navigate('/emp/dashboard', {state: {Name: name, Phone: phone}})
             }
             else{
                 setError(true)
@@ -88,7 +88,7 @@ export default function Usercreate(){
             <h1>Welcome</h1>
             <p className='desc'>Login to get started</p>
           <form>
-            <input onChange={handleEmail} value={email} type='text'className="textbox" placeholder='Username'/><br></br>
+            <input onChange={handleEmail} value={empid} type='text'className="textbox" placeholder='Employee ID'/><br></br>
             <input onChange={handlePassword} value={password} type='password' className='textbox' placeholder='Password'/><br></br>
 
             <div className="buttons">

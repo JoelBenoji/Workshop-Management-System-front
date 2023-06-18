@@ -38,6 +38,22 @@ input{
     padding: 2vh;
     margin-bottom: 3vh;
 }
+select{
+    background-color: #c0c0c0;
+    border: 1px solid #1e1e1e;
+    width: 54.4vh;
+    height: 5vh;
+    font-size: 1.7vh;
+    margin-bottom: 3vh;
+    padding: 0 2vh;
+    color: #1e1e1e;
+    font-family: 'Nunito';
+}
+.select{
+    position: relative;
+    font-family: 'Montserrat';
+}
+
 button{
     background-color: #1e1e1e;
     color: #c0c0c0;
