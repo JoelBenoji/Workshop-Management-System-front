@@ -15,11 +15,11 @@ p{
     color: #c0c0c0;
 }
 .account{
-    margin-left:70vh;
+    margin-left:35vw;
 }
 img{
     width: 8vh;
-    margin: -2vh 0 0 0;
+    margin: -2vh 0 0 -6vw;
     transform: translate(-2vh,1.5vh);
     padding: 0;
 }
@@ -57,7 +57,7 @@ h2{
     background-color: #1e1e1e;
 }
 video{
-    width: 100vw;
+    min-width: 100vw;
     z-index: -1;
     position: fixed;
 }
@@ -89,9 +89,26 @@ nav ul{
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding: 1.5vh 3vh;
+    width: 100vw;
+    padding: 1.5vh 0vh;
 }
 nav ul li{
     margin: 0 3.5vh;
+    font-size: 0.9vw;
     list-style-type: none;
+}
+.container span{
+    font-size: 6rem;
+    font-style: normal;
+}
+@media only screen and (max-width: 900px){
+    nav{
+        display:none;
+    }
+    .container-first h1{
+        font-size: 4.5rem;
+    }
+    span{
+        font-size: 7rem;
+    }
 }

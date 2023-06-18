@@ -55,7 +55,7 @@ export default function Usercreate(){
                 console.log(json.Status)
                 if(json.Status === 'Success'){
                     setError('Successfully Registered');
-                    navigate('/login')
+                    navigate('/user/login')
                 }
                 else{
                     setError('Invalid details, missing or already exists')
