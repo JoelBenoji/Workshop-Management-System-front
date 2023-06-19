@@ -10,7 +10,9 @@ export default function Usercreate(){
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [makes, setMakes] = useState([]);
+    const [models, setModels] = useState([]);
     const [selected, setSelected] = useState(makes[0]);
+    const [selectmodel, setSelectmodel] = useState(models[0]);
 
     const navigate = useNavigate();
 
@@ -44,15 +46,34 @@ export default function Usercreate(){
     const handleMake = (e) => {
         setMake(e.target.value);
         setSelected(e.target.value);
+
+        fetch("http://localhost:8080/signup/model",{
+            method:'post',
+            mode:'cors',
+            headers:{
+                "Content-type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                Make: e.target.value
+            })
+        }).then(
+            response=>response.json()
+        ).then(json => {
+            setModels(json.Models)
+        })
     };
+
+    console.log(models);
+
     const handleModel = (e) => {
         setModel(e.target.value);
+        setSelectmodel(e.target.value)
     };
     const handlePassword = (e) => {
         setPassword(e.target.value);
     };
     var data = {
-        "name": name.charAt(0).toUpperCase() + make.slice(1),
+        "name": name.charAt(0).toUpperCase() + name.slice(1),
         "email": email,
         "password": password,
         "make" : make.charAt(0).toUpperCase()+ make.slice(1),
@@ -112,8 +133,12 @@ export default function Usercreate(){
                   return (<option>{item}</option>);
               })}
             </select>
+            <select value={selectmodel} onChange={handleModel}>
+              {models.map((item) => {
+                  return (<option>{item}</option>);
+              })}
+            </select>
             </div>
-            <input onChange={handleModel} value={model} type='text' placeholder='Model'/><br></br>
 
             <button onClick={handleSubmit} type="submit">Submit</button><br></br>
             <a href="user/login">Back to Log In</a>
