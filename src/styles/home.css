@@ -1,38 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Great+Vibes&family=Montserrat:wght@300&family=Nunito:wght@300&family=Playfair+Display&display=swap');
-html{
+
+html {
     scroll-behavior: smooth;
 }
-p{
+
+p {
     margin: 0%;
 }
-.homepage{
+
+.homepage {
     font-family: 'Nunito';
     color: #c0c0c0;
-    z-index:-1;
+    z-index: -1;
 }
-.link{
+
+.link {
     text-decoration: none;
     color: #c0c0c0;
 }
-.account{
-    margin-left:35vw;
+
+.account {
+    margin-left: 35vw;
 }
-img{
+
+img {
     width: 8vh;
     margin: -2vh 0 0 -6vw;
-    transform: translate(-2vh,1.5vh);
+    transform: translate(-2vh, 1.5vh);
     padding: 0;
 }
-span{
+
+span {
     color: #00a97f;
     font-size: 25vh;
     font-style: italic;
 }
-h2{
+
+h2 {
     font-family: 'Baskervville';
     font-size: 6rem;
 }
-.container{
+
+.container {
     margin: 0%;
     height: 100vh;
     width: 80vw;
@@ -40,11 +49,12 @@ h2{
     transform: translateY(100vh);
     padding: 10vh 10vw 10vh 10vw;
     overflow: hidden;
-} 
-.container-first{
+}
+
+.container-first {
     text-align: center;
-    padding:25vh 0 0 0;
-    overflow-y: hidden ;
+    padding: 25vh 0 0 0;
+    overflow-y: hidden;
     height: 80vh;
     background: linear-gradient(to bottom, transparent 0%, black 100%);
     position: fixed;
@@ -53,38 +63,44 @@ h2{
     width: 100vw;
     overflow: hidden;
 }
-.bg{
+
+.bg {
     background-color: #1e1e1e;
 }
-video{
+
+video {
     min-width: 100vw;
     z-index: -1;
     position: fixed;
 }
-.container-first h1{
+
+.container-first h1 {
     font-size: 10rem;
     font-family: 'Baskervville';
     margin: 6vh 0 5vh 0;
     z-index: 2;
 }
+
 .container-first p {
     margin: 20vh 0 0 0;
     padding: 0%;
-    z-index:2;
+    z-index: 2;
 }
-nav{
+
+nav {
     height: 9vh;
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border-radius: 10px;
-    width:95vw;
+    width: 95vw;
     margin-left: 2.5vw;
     margin-top: 1.5vh;
     position: fixed;
-    z-index:3;
+    z-index: 3;
 }
-nav ul{
+
+nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,23 +108,44 @@ nav ul{
     width: 100vw;
     padding: 1.5vh 0vh;
 }
-nav ul li{
+
+nav ul li {
     margin: 0 3.5vh;
     font-size: 0.9vw;
     list-style-type: none;
 }
-.container span{
+
+.container span {
     font-size: 6rem;
     font-style: normal;
 }
-@media only screen and (max-width: 900px){
-    nav{
-        display:none;
+
+.contact {
+    height: 80vh;
+}
+
+.features{
+    display: flex;
+    align-items: center;
+}
+
+.feature{
+    width:20vw;
+    height: 40vh;
+    padding: 3rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+    nav {
+        display: none;
     }
-    .container-first h1{
+
+    .container-first h1 {
         font-size: 4.5rem;
     }
-    span{
+
+    span {
         font-size: 7rem;
     }
 }
