@@ -25,6 +25,7 @@ h1{
     width: 40vh;
     margin:0;
     transform: translateX(0vh);
+    cursor: pointer;
 }
 .headings-text h2{
     font-family: 'Baskervville';

@@ -15,6 +15,9 @@ export default function Usercreate(){
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
 
+    const home =()=>{
+        navigate('/')
+    }
     const handleEmail = (e) => {
         setEmp(parseInt(e.target.value));
         setSubmitted(false);
@@ -78,7 +81,7 @@ export default function Usercreate(){
     <div className="container-login">
         <div className="headings">
         <div className='headings-text'>
-            <img src={logo} className='logo-login' alt='logo'/>
+            <img src={logo} className='logo-login' alt='logo' onClick={home}/>
             <h2>M . E . C . X</h2>
             <p>Staff Login</p>    
         </div>

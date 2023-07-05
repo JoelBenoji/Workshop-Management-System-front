@@ -6,11 +6,12 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Emplog from "./Emplog";
 import Empdashboard from './Empdashboard';
-
+import Error from './Error';
 
 function App() {
   return (
     <Routes>
+      <Route path='*' element={<Error/>}/>
       <Route path='/' element={<Home/>}/>
       <Route path="/user/login" element={<Login/>}/>
       <Route path="/emp/login" element={<Emplog/>}/>
