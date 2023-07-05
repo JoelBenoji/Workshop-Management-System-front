@@ -135,7 +135,7 @@ export default function Usercreate(){
             </select>
             <select value={selectmodel} onChange={handleModel}>
               {models.map((item) => {
-                  return (<option>{item}</option>);
+                  return (<option className="option">{item}</option>);
               })}
             </select>
             </div>

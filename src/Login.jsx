@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { json, useNavigate } from "react-router";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import './styles/login.css'
 import logo from './Images/output.png'
 
@@ -15,6 +15,9 @@ export default function Usercreate(){
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
 
+    const home =()=>{
+        navigate('/')
+    }
     const handleEmail = (e) => {
         setEmail(e.target.value);
         setSubmitted(false);
@@ -78,7 +81,7 @@ export default function Usercreate(){
     <div className="container-login">
         <div className="headings">
         <div className='headings-text'>
-            <img src={logo} className='logo-login' alt='logo'/>
+            <img src={logo} className='logo-login' alt='logo' onClick={home}/>
             <h2>M . E . C . X</h2>
             <p>The mechanical expert</p>    
         </div>
