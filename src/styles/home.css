@@ -45,12 +45,14 @@ h2 {
     margin: 0%;
     height: 100vh;
     width: 80vw;
-    overflow: hidden;
+    overflow-x: hidden;
     transform: translateY(100vh);
     padding: 10vh 10vw 10vh 10vw;
-    overflow: hidden;
+    font-size: 1rem;
 }
-
+.container p{
+    width: 70vw;
+}
 .container-first {
     text-align: center;
     padding: 25vh 0 0 0;
@@ -119,33 +121,94 @@ nav ul li {
     font-size: 6rem;
     font-style: normal;
 }
-
-.contact {
-    height: 80vh;
+.about{
+    height: 165vh;
 }
-
+.about-p{
+    margin-bottom: 5vh;
+}
 .features{
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 10vh 0;
+    width: 80vw;
 }
-
+.features p{
+    width: 15vw;
+}
 .feature{
     width:20vw;
     height: 40vh;
-    padding: 3rem;
+    padding: 2rem;
     text-align: center;
 }
-
+.icon{
+    font-size: 5rem;
+    width: 3rem !important;
+}
+.btn-book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito';
+    background-color: #1e1e1e;
+    border: 1px solid #c0c0c0;
+    width: 10vw;
+    height: 3vw;
+    margin-top: 15vh;
+    text-decoration: none;
+    color: #c0c0c0;
+}
+.btn-book:hover{
+    transition: 0.5s;
+    background-color: #00a97f;
+    color: #1e1e1e;
+    border: 1.2px solid #1e1e1e;
+}
+.contact {
+    height: 80vh;
+}
+footer{
+    transform: translateY(100vh);
+    background-color: #1e1e1e;
+    text-align: center;
+    height: 5vh;
+    font-family: monospace
+}
 @media only screen and (max-width: 900px) {
     nav {
         display: none;
     }
-
+    .container{
+        text-align: center;
+        padding: 0 10vw;
+    }
+    .container p{
+        padding: 0 5vw;
+    }
     .container-first h1 {
         font-size: 4.5rem;
     }
-
     span {
         font-size: 7rem;
+    }
+    .features{
+        display: block;
+        width: 100vw;
+    }
+    .feature p{
+        width: 50vw;
+        padding: 0 5vw;
+        text-align: unset;
+    }
+    .feature{
+        width: 65vw;
+    }
+    .about{
+        height: 400vh;
+    }
+    .icon{
+        width:5rem !important;
     }
 }

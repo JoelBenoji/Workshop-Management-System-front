@@ -53,3 +53,34 @@
     width: 100vh;
     height: 37vh;
 }
+.dashboard-error{
+    background-color: #1e1e1e;
+    color: #c0c0c0;
+    margin: 0%;
+    width: 100vw;
+    height: 80vh;
+    font-family: 'Nunito';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10vh 0;
+}
+.dashboard-error h2{
+    margin: 0%;
+    font-size: 10rem;
+}
+.dashboard-error img{
+    width: 15rem;
+    margin-bottom: 2vh;
+    justify-self: center;
+    transform: translateX(3vw);
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-error{
+    height: 80vh;
+}

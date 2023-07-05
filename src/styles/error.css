@@ -1,0 +1,43 @@
+.error{
+    background: linear-gradient(to bottom, transparent 0% , black 100%), url('/src/Images/car.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:#1e1e1e;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+.error h2{
+    font-family: 'Montserrat';
+    margin: 0%;
+    font-size: 10rem;
+}
+.error p{
+    margin: 0%;
+    font-family: 'Nunito';
+    margin-bottom: 2rem;
+}
+.not-found{
+    font-size: 1.5rem;
+}
+.text-error{
+    color: #c0c0c0;
+    font-family: 'Nunito';
+    margin-top: 45vh;
+}
+.button{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 5vh;
+}
+.btn-home{
+    text-decoration: none;
+    color: #c0c0c0;
+    background-color: #1e1e1e;
+    display: flex;
+    width: 15rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+}

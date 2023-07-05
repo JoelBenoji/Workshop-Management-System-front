@@ -1,9 +1,17 @@
 import "./styles/home.css";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import video from "./Videos/homevideo.mp4";
 import logo from "./Images/output.png";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCalendarCheck,faClock,faWarehouse,faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+library.add(faCalendarCheck)
+library.add(faClock)
+library.add(faWarehouse)
+library.add(faMoneyBill)
 
 export default function Home() {
   const targetRef = useRef(null);
@@ -82,18 +90,22 @@ export default function Home() {
           <h2>
             Who we <span>are</span>
           </h2>
+          <p className="about-p">
           At MecX, we are dedicated to revolutionizing the way workshops
           operate. We provide a comprehensive software solution designed
           specifically to streamline the operations in a workshop and achieve
-          greater efficiency. With a deep understanding of the challenges faced
+          greater efficiency.</p> 
+          <p className="about-p">With a deep understanding of the challenges faced
           by workshop businesses, our experienced team has developed a
           user-friendly and feature-rich platform that addresses the needs of
-          our customers . Our mission is to optimize processes, enhancing
+          our customers .</p>
+          <p className="about-p"> Our mission is to optimize processes, enhancing
           productivity, and delivering exceptional service to our customers. Key
-          features of MecX include:
-          <FontAwesomeIcon icon="fa-solid fa-calendar-check" style={{color: "#009a7f", width:"40rem"}} />
+          features of MecX include
+          </p>
           <div className="features">
             <div className="feature">
+              <FontAwesomeIcon className='icon' icon={faCalendarCheck} style={{color: "#009a7f", width:"40rem"}} />
               <h3>Appointment Management</h3>
               <p>
                 Effortlessly schedule and manage customer appointments and
@@ -101,6 +113,7 @@ export default function Home() {
               </p>
             </div>
             <div className="feature">
+            <FontAwesomeIcon className='icon' icon={faClock} style={{color: "#009a7f", width:"40rem"}} />
               <h3>Job Tracking</h3>
               <p>
                 Track the progress of every job, from initial intake to
@@ -108,20 +121,27 @@ export default function Home() {
               </p>
             </div>
             <div className="feature">
+            <FontAwesomeIcon className='icon' icon={faWarehouse} style={{color: "#009a7f", width:"40rem"}} />
               <h3>Inventory Control</h3>
               <p>Streamline inventory management by tracking spare parts.</p>
             </div>
             <div className="feature">
+            <FontAwesomeIcon className='icon' icon={faMoneyBill} style={{color: "#009a7f", width:"40rem"}} />
             <h3>Invoicing and Billing</h3>
             <p>Streamline the
                 invoicing process and generate accurate and professional
                 invoices.</p>
             </div>
           </div>
+          <p className="about-p">
           At MecX, we prioritize exceptional customer support. Our dedicated
           team is committed to providing prompt assistance, ensuring a smooth
-          onboarding process and ongoing support for all your needs. Contact us
+          onboarding process and ongoing support for all your needs.
+          </p>
+          <p className="about-p">
+          Contact us
           today to learn more about how our system can benefit you.
+          </p>
         </section>
         <section className="container services bg" id="services">
           <h2>
@@ -138,10 +158,11 @@ export default function Home() {
           <h2>
             Book <span>Now</span>
           </h2>
-          <p>
-            Want to book an Appointment with us?. <br></br>Click the button
-            below
+          <p className="about-p">
+            Want to book an Appointment with us?
           </p>
+          <p className="about-p">Click the button below to login</p>
+          <a href='/user/login' className="btn-book">Log In</a>
         </section>
         <section className="container contact bg" id="contact">
           <h2>
@@ -155,6 +176,9 @@ export default function Home() {
           doloribus dolor vel praesentium? Est, maxime.
         </section>
       </div>
+      <footer>
+        <p>Copyright of mecX 2023 | <a target='_blank' href="https://stock.adobe.com" className="link">Images and Videos by Adobe Stock</a> | <a href='/devs' className="link"> Meet the Developers</a></p>
+      </footer>
     </div>
   );
 }
