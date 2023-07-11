@@ -8,7 +8,8 @@ export default function Usercreate(){
     const [password, setPassword] = useState('');
     const[success,setSuccess] = useState('')
     const [phone,setPhone] = useState('') 
-    const [name,setName] = useState('');
+    const [name,setName] = useState('')
+    const [category,setCat] = useState('')
 
     const navigate = useNavigate();
 
@@ -51,12 +52,13 @@ export default function Usercreate(){
                 setSuccess(json.Success)
                 setPhone(json.Phone)
                 setName(json.Name)
+                setCat(json.Category)
             })
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
                 setError(false);
-                navigate('/emp/dashboard', {state: {Name: name, Phone: phone}})
+                navigate('/emp/dashboard', {state: {Name: name, Phone: phone, Category: category}})
             }
             else{
                 setError(true)

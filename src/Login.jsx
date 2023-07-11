@@ -56,7 +56,7 @@ export default function Usercreate(){
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
-                navigate("/user/dashboard",{state:{Name: name, Make:make, Model:model}})
+                navigate("/user/dashboard",{state:{Name: name, Email: email, Make:make, Model:model}})
             }
             else{
                 setError(true)
