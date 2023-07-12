@@ -33,8 +33,8 @@ export default function Dashboard() {
   const navigate = useNavigate();
   
   const Name = Location.state.Name;
-  const Make = Location.state.Make;
-  const Model = Location.state.Model;
+  const [Make,setMake] = useState(Location.state.Make);
+  const [Model,setModel] = useState(Location.state.Model);
   const [Email,setEmail] = useState(Location.state.Email);
 
   const nav = () => {
@@ -48,7 +48,9 @@ export default function Dashboard() {
       email: Email,
       date: date,
       category: category,
-      desc: desc
+      desc: desc,
+      make: Make,
+      model: Model
     }
     await fetch("http://localhost:8080/user/dashboard", {
             method: "POST", 
@@ -143,7 +145,7 @@ export default function Dashboard() {
         <div className="card appointments">
           <h3>Your Appointments</h3>
           <div className="table">
-          <table>
+          <table className="table-user">
             <thead>
               <tr>
                 <td>Date</td>

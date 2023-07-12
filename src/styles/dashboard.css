@@ -1,3 +1,6 @@
+body{
+    background-color: #1e1e1e;
+}
 .dashboard{
     background-color: #1e1e1e;
     background-size: cover;
@@ -15,18 +18,19 @@
     font-family: 'Playfair Display';
     color: #c0c0c0;
     font-size: 6.5rem;
-    margin: 0% 3vh;
+    margin: 0% 0 0 3vh;
+    width: 80vw;
 }
 .heading{
     display: flex;
 }
 .heading button{
-    margin: 9vh 0vh 9vh 50vw;
+    margin: 9vh 0vh 9vh 10vw;
     width: 20vh;
 }
 .cards{
     display: flex;
-    width: 100vw;
+    width: 90vw;
 }
 .card{
     padding: 1vh 3vh;
@@ -42,6 +46,9 @@
 .cardeets{
     width:47vh;
     height: 70vh;
+}
+.emp{
+    height: 50vh;
 }
 .card h3{
     font-family:'Montserrat';
@@ -106,8 +113,13 @@
 }
 table{
     border-collapse: collapse;
-    width: 92vw;
     text-align: center;
+}
+.table-user{
+    width: 92vw;
+}
+.table-emp{
+    width: 70vw;
 }
 td{
     height: 10vh;

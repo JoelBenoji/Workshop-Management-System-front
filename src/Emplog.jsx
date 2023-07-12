@@ -58,7 +58,12 @@ export default function Usercreate(){
             if(success === 'true'){
                 setSubmitted(true);
                 setError(false);
-                navigate('/emp/dashboard', {state: {Name: name, Phone: phone, Category: category}})
+                navigate('/emp/dashboard', {state: {
+                    Name: name,
+                    Phone: phone,
+                    Category: category,
+                    Empid: empid
+                }})
             }
             else{
                 setError(true)
