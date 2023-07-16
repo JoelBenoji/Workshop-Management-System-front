@@ -8,6 +8,7 @@ body{
     width:100vw;
     margin: 0%;
     overflow-y: scroll;
+    overflow-x: hidden;
     min-height: 100vh;
 }
 .dashboard span{
@@ -44,7 +45,7 @@ body{
     font-family: 'Nunito';
 }
 .cardeets{
-    width:47vh;
+    width:57vh;
     height: 70vh;
 }
 .emp{
@@ -55,7 +56,7 @@ body{
     font-size: 3rem;
     margin-top: 5vh;
 }
-.cardeets p{
+.card p{
     margin-bottom: 4vh;
 }
 .appointments{
@@ -63,7 +64,7 @@ body{
     height: 50vh;
 }
 .booking{
-    width:65vw;
+    width:35vw;
     height:70vh;
     align-items: center;
     justify-content: center;
@@ -137,4 +138,31 @@ td{
     padding: 1rem;
     font-family: 'Nunito';
     font-size: 0.8rem;
+}
+.joblist{
+    width:94vw;
+}
+.table-joblist{
+    width: 94vw;
+    overflow-y: scroll;
+}
+.table-joblist thead{
+    height: 5vh;
+}
+.table-joblist tbody{
+    height: 35vh;
+}
+.table-joblist tbody tr{
+    height: 1vh;
+}
+.table-joblist p{
+    margin-bottom: 1%;
+}
+.joblist-button{
+    width: 7vw;
+    height: 4vh;
+    margin: 0vh 0.5vw;
+}
+.accept{
+    width:10vw;
 }

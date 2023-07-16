@@ -30,13 +30,13 @@ export default function Usercreate(){
         "email": email,
         "password": password,
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if (data.email === '' || data.password === '') {
             setError(true);
         } 
         else {
-            fetch("http://localhost:8080/", {
+            await fetch("http://localhost:8080/", {
             method: "POST", 
             mode: "cors",
             // Adding headers to the request
@@ -53,15 +53,17 @@ export default function Usercreate(){
                 setModel(json.Model)
                 setName(json.Name)
             })
-            // Displaying results to console
-            if(success === 'true'){
-                setSubmitted(true);
-                navigate("/user/dashboard",{state:{Name: name, Email: email, Make:make, Model:model}})
-            }
-            else{
+            .then(()=>{
+                // Displaying results to console
+                if(success === 'true'){
+                    setSubmitted(true);
+                    navigate("/user/dashboard",{state:{Name: name, Email: email, Make:make, Model:model}})
+                }
+                else{
                 setError(true)
                 setSubmitted(false)
-            }
+                }
+            })
         }
         }
 

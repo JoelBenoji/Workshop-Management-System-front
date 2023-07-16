@@ -2,73 +2,91 @@ import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 import "./styles/dashboard.css";
 import logo from "./Images/output.png";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Dashboard() {
   //Appointment Form States
   const [category, setCategory] = useState("");
   const [date, setDate] = useState();
   const [desc, setDesc] = useState();
-  const [list,setList] = useState([]);
+  const [list, setList] = useState([]);
 
-  //Get Appointment List
-  useEffect(()=>{
-    fetch('http://localhost:8080/user/dashboard',{
-    method: "GET", 
-            mode: "cors",
-            // Adding headers to the request
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-  }).then(
-    response=>(response.json())
-  ).then(
-    json=>{
-      setList(json)
-    }
-  )
-  },[])
   //Appointment Table Setter
   const Location = useLocation();
   const navigate = useNavigate();
-  
+
   const Name = Location.state.Name;
-  const [Make,setMake] = useState(Location.state.Make);
-  const [Model,setModel] = useState(Location.state.Model);
-  const [Email,setEmail] = useState(Location.state.Email);
+  const [Make, setMake] = useState(Location.state.Make);
+  const [Model, setModel] = useState(Location.state.Model);
+  const [Email, setEmail] = useState(Location.state.Email);
+
+    //Get Appointment List
+    useEffect(() => {
+      fetch("http://localhost:8080/user/dashboard", {
+        method: "post",
+        mode: "cors",
+        // Adding headers to the request
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          email: Location.state.Email
+        })
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          setList(json);
+        });
+    }, []);
+    
+  //Appointment Set Date Constraints
+  var datenow = new Date();
+  var currentdate = datenow.toISOString().slice(0, 10).replace(/-/g, "");
+  var mindate =
+    currentdate.slice(0, 4) +
+    "-" +
+    currentdate.slice(4, 6) +
+    "-" +
+    currentdate.slice(6, 8);
 
   const nav = () => {
-    navigate("/user/login",{replace:true});
+    navigate("/user/login", { replace: true });
   };
-  const handleSubmit=async(e)=>{
-    if(desc !== null && date != null && category != null){
+  const handleSubmit = async (e) => {
+    if (desc !== null && date != null && category != null) {
       e.preventDefault();
-    var data = {
-      name: Name,
-      email: Email,
-      date: date,
-      category: category,
-      desc: desc,
-      make: Make,
-      model: Model
+      var data = {
+        name: Name,
+        email: Email,
+        date: date,
+        category: category,
+        desc: desc,
+        make: Make,
+        model: Model,
+      };
+      await fetch("http://localhost:8080/user/dashboard/newappoint", {
+        method: "POST",
+        mode: "cors",
+        // Adding headers to the request
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        // Adding body or contents to send
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((json) => 
+        {
+          alert(json.Status)
+          window.location.reload(false)
+        }
+        );
+      console.log(Name);
+    } else {
+      e.preventDefault();
+      alert("Enter the value");
     }
-    await fetch("http://localhost:8080/user/dashboard", {
-            method: "POST", 
-            mode: "cors",
-            // Adding headers to the request
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            },
-            // Adding body or contents to send
-            body: JSON.stringify(data)
-            })
-    console.log(Name)
-    }
-    else{
-      e.preventDefault()
-      alert('Enter the value')
-    }
-  }
+  };
   const handledate = (e) => {
     setDate(e.target.value);
   };
@@ -124,17 +142,27 @@ export default function Dashboard() {
             <h3>Book an appointment</h3>
             <p>Fill in the details to book an appointment</p>
             <form onSubmit={handleSubmit}>
-              <select value={category} onChange={handlecat}>
+              <select value={category} onChange={handlecat} required>
                 <option>Select a Category</option>
                 <option>General</option>
                 <option>Electrical</option>
+                <option>Body Work</option>
+                <option>Air Conditioning</option>
+                <option>Engine Specialist</option>
               </select>
               <br></br>
-              <input type="date" onChange={handledate} defaultValue={date} />
+              <input
+                type="date"
+                onChange={handledate}
+                min={mindate}
+                defaultValue={date}
+                required
+              />
               <br></br>
               <textarea
                 placeholder="Description"
                 onChange={handledesc}
+                required
               ></textarea>
               <div className="buttons">
                 <button type="submit">Submit</button>
@@ -145,30 +173,28 @@ export default function Dashboard() {
         <div className="card appointments">
           <h3>Your Appointments</h3>
           <div className="table">
-          <table className="table-user">
-            <thead>
-              <tr>
-                <td>Date</td>
-                <td>Category</td>
-                <td>Description</td>
-                <td>Status</td>
-              </tr>
-            </thead>
-            <tbody>
-            {( 
-            list.map((item)=>{
-              return(
+            <table className="table-user">
+              <thead>
                 <tr>
-                  <td>{item.Date}</td>
-                  <td>{item.Category}</td>
-                  <td>{item.Description}</td>
-                  <td>{item.Status}</td>
+                  <td>Date</td>
+                  <td>Category</td>
+                  <td>Description</td>
+                  <td>Status</td>
                 </tr>
-              )
-            })
-          )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {list.map((item) => {
+                  return (
+                    <tr>
+                      <td>{item.Date}</td>
+                      <td>{item.Category}</td>
+                      <td>{item.Description}</td>
+                      <td>{item.Status}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

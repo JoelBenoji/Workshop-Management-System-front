@@ -9,6 +9,7 @@ export default function Empdashboard() {
   const navigate = useNavigate();
 
   const [list, setList] = useState([]);
+  const [joblist, setJoblist] = useState([]);
 
   const nav = () => {
     setList([])
@@ -27,11 +28,26 @@ export default function Empdashboard() {
     response=>(response.json())
   ).then(
     json=>{
-      console.log(json)
       setList(json)
     }
   )
-  },[])
+    fetch('http://localhost:8080/emp/dashboard/joblist',{
+      method: "POST", 
+      mode: "cors",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+    body: JSON.stringify({
+      Empid: data.Empid
+    })
+  }).then(
+      response=>response.json()
+    ).then(
+      json=>{
+        setJoblist(json)
+      }
+    )
+    },[])
   
   //Accept Function
   const handleAccept=async(index)=>{
@@ -51,6 +67,12 @@ export default function Empdashboard() {
             body: JSON.stringify(data)
     })
   }
+
+  //Take A Job
+  const startwork=()=>{
+    alert("Work Picked")
+  }
+
   if (data === null) {
     setTimeout(() => {
       navigate("/emp/login");
@@ -60,7 +82,7 @@ export default function Empdashboard() {
         <div className="dashboard-error">
           <div className="container-error">
             <div className="img">
-              <img src={logo} />
+              <img src={logo} alt="logo"/>
             </div>
             <p className="mecx">M . E . C . X</p>
             <h2>OOPS</h2>
@@ -87,9 +109,11 @@ export default function Empdashboard() {
           <h3>Information</h3>
           <p><b>Phone no:</b> {data.Phone}</p>
           <p><b>Category:</b> {data.Category}</p>
+          <p><b>Total Jobs: </b></p>
+          <p><b>Rating: </b></p>
           </div>
           <div className="card appointments">
-            <h3>View Appointments</h3>
+            <h3>Get Jobs</h3>
             <p>View A List of User Appointments</p>
             <div className="table">
             <table className = 'table-emp'>
@@ -109,8 +133,8 @@ export default function Empdashboard() {
                         <td>{item.Make}</td>
                         <td>{item.Model}</td>
                         <td>{item.Description}</td>
-                        <td>{item.Status}
-                        <button className='accept' onClick={()=>handleAccept(index)}>Accept</button>
+                        <td>
+                        <button className='accept' onClick={()=>handleAccept(index)}>Take this Job</button>
                         </td>
                       </tr>
                     )
@@ -121,6 +145,50 @@ export default function Empdashboard() {
             </div>
           </div>
         </div>
+        <div className="card joblist">
+            <h3>Your Jobs</h3>
+            <p>View your accepted Jobs</p>
+            <table className="table-joblist">
+              <thead>
+                <tr>
+                  <td>Date</td>
+                  <td>Customer Name</td>
+                  <td>Make</td>
+                  <td>Model</td>
+                  <td>Descrption</td>
+                  <td>
+                    Action
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+              {(
+                  joblist.map((item)=>{
+                    return(
+                      <tr>
+                        <td>{item.Date}</td>
+                        <td>{item.Name}</td>
+                        <td>{item.Make}</td>
+                        <td>{item.Model}</td>
+                        <td>{item.Description}</td>
+                        <td>
+                          <button className="joblist-button" onClick={startwork}>Start Work</button>
+                        </td>
+                      </tr>
+                    )
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
+          <div className="card">
+            <h3>Current Job</h3>
+            <p><b>Name: </b>Arjun</p>
+            <p><b>Make: </b>Toyota</p>
+            <p><b>Model: </b>Corolla</p>
+            <p><b>Total Cost: </b><input type="text"/></p>
+            <button>Mark As Finished</button>
+          </div>
       </div>
     );
   }
