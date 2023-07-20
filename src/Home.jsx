@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import video from "./Videos/homevideo.mp4";
 import logo from "./Images/output.png";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -224,7 +223,7 @@ export default function Home() {
       <footer>
         <p>
           Copyright of mecX 2023 |{" "}
-          <a target="_blank" href="https://stock.adobe.com" className="link">
+          <a rel="noopener" href="https://stock.adobe.com" className="link">
             Images and Videos by Adobe Stock
           </a>{" "}
           |{" "}
