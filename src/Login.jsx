@@ -71,7 +71,7 @@ export default function Usercreate(){
     const errorMessage = () => {
         return (
             <div
-                className="error"
+                className="error-message"
                 style={{
                     display: error ? '' : 'none',
                 }}>

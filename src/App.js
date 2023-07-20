@@ -8,6 +8,7 @@ import Emplog from "./Emplog";
 import Empdashboard from './Empdashboard';
 import Error from './Error';
 import AdminLogin from './AdminLogin';
+import AdminDashboard from './AdminDashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/signup" element={<Usercreate/>}/>
       <Route path='/user/dashboard' element={<Dashboard/>}/>
       <Route path='/emp/dashboard' element={<Empdashboard/>}/>
+      <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
     </Routes>
   );
 }

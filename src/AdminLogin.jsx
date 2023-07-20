@@ -7,9 +7,7 @@ export default function AdminLogin(){
     const [empid, setEmp] = useState();
     const [password, setPassword] = useState('');
     const[success,setSuccess] = useState('')
-    const [phone,setPhone] = useState('') 
     const [name,setName] = useState('')
-    const [category,setCat] = useState('')
 
     const navigate = useNavigate();
 
@@ -19,16 +17,12 @@ export default function AdminLogin(){
     const home =()=>{
         navigate('/')
     }
-    const handleEmail = (e) => {
-        setEmp(parseInt(e.target.value));
-        setSubmitted(false);
-    }
+
     const handlePassword = (e) => {
         setPassword(e.target.value);
         setSubmitted(false);
     };
     var data = {
-        "Empid": empid,
         "Password": password,
     }
     const handleSubmit = (e) => {
@@ -37,7 +31,7 @@ export default function AdminLogin(){
             setError(true);
         } 
         else {
-            fetch("http://localhost:8080/emplogin", {
+            fetch("http://localhost:8080/adminlogin", {
             method: "POST", 
             mode: "cors",
             // Adding headers to the request
@@ -49,21 +43,14 @@ export default function AdminLogin(){
             })
             // Converting to JSON
             .then(response =>response.json()).then((json) => {
-                setSuccess(json.Success)
-                setPhone(json.Phone)
                 setName(json.Name)
-                setCat(json.Category)
+                setSuccess('true')
             })
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
+                navigate('/admin/dashboard',{state:{Name: name}})
                 setError(false);
-                navigate('/emp/dashboard', {state: {
-                    Name: name,
-                    Phone: phone,
-                    Category: category,
-                    Empid: empid
-                }})
             }
             else{
                 setError(true)
@@ -76,7 +63,7 @@ export default function AdminLogin(){
     const errorMessage = () => {
         return (
             <div
-                className="error"
+                className="error-message"
                 style={{
                     display: error ? '' : 'none',
                 }}>

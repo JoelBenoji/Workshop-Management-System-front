@@ -50,6 +50,7 @@ export default function Dashboard() {
     "-" +
     currentdate.slice(6, 8);
 
+  //Log Out  
   const nav = () => {
     navigate("/user/login", { replace: true });
   };
@@ -102,7 +103,6 @@ export default function Dashboard() {
           window.location.reload(false)
         }
         );
-      console.log(Name);
     } else {
       e.preventDefault();
       alert("Enter the value");
@@ -144,7 +144,7 @@ export default function Dashboard() {
     }
   }
 
-  if (Name == null) {
+  if (Name === null || Name === undefined) {
     setTimeout(() => {
       navigate("/user/login");
     }, 2000);
