@@ -3,15 +3,19 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import video from "./Videos/homevideo.mp4";
 import logo from "./Images/output.png";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCalendarCheck,faClock,faWarehouse,faMoneyBill } from "@fortawesome/free-solid-svg-icons";
-library.add(faCalendarCheck)
-library.add(faClock)
-library.add(faWarehouse)
-library.add(faMoneyBill)
+import {
+  faCalendarCheck,
+  faClock,
+  faWarehouse,
+  faMoneyBill,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faCalendarCheck);
+library.add(faClock);
+library.add(faWarehouse);
+library.add(faMoneyBill);
 
 export default function Home() {
   const targetRef = useRef(null);
@@ -91,21 +95,29 @@ export default function Home() {
             Who we <span>are</span>
           </h2>
           <p className="about-p">
-          At MecX, we are dedicated to revolutionizing the way workshops
-          operate. We provide a comprehensive software solution designed
-          specifically to streamline the operations in a workshop and achieve
-          greater efficiency.</p> 
-          <p className="about-p">With a deep understanding of the challenges faced
-          by workshop businesses, our experienced team has developed a
-          user-friendly and feature-rich platform that addresses the needs of
-          our customers .</p>
-          <p className="about-p"> Our mission is to optimize processes, enhancing
-          productivity, and delivering exceptional service to our customers. Key
-          features of MecX include
+            At MecX, we are dedicated to revolutionizing the way workshops
+            operate. We provide a comprehensive software solution designed
+            specifically to streamline the operations in a workshop and achieve
+            greater efficiency.
+          </p>
+          <p className="about-p">
+            With a deep understanding of the challenges faced by workshop
+            businesses, our experienced team has developed a user-friendly and
+            feature-rich platform that addresses the needs of our customers .
+          </p>
+          <p className="about-p">
+            {" "}
+            Our mission is to optimize processes, enhancing productivity, and
+            delivering exceptional service to our customers. Key features of
+            MecX include
           </p>
           <div className="features">
             <div className="feature">
-              <FontAwesomeIcon className='icon' icon={faCalendarCheck} style={{color: "#009a7f", width:"40rem"}} />
+              <FontAwesomeIcon
+                className="icon"
+                icon={faCalendarCheck}
+                style={{ color: "#009a7f", width: "40rem" }}
+              />
               <h3>Appointment Management</h3>
               <p>
                 Effortlessly schedule and manage customer appointments and
@@ -113,7 +125,11 @@ export default function Home() {
               </p>
             </div>
             <div className="feature">
-            <FontAwesomeIcon className='icon' icon={faClock} style={{color: "#009a7f", width:"40rem"}} />
+              <FontAwesomeIcon
+                className="icon"
+                icon={faClock}
+                style={{ color: "#009a7f", width: "40rem" }}
+              />
               <h3>Job Tracking</h3>
               <p>
                 Track the progress of every job, from initial intake to
@@ -121,63 +137,101 @@ export default function Home() {
               </p>
             </div>
             <div className="feature">
-            <FontAwesomeIcon className='icon' icon={faWarehouse} style={{color: "#009a7f", width:"40rem"}} />
+              <FontAwesomeIcon
+                className="icon"
+                icon={faWarehouse}
+                style={{ color: "#009a7f", width: "40rem" }}
+              />
               <h3>Inventory Control</h3>
               <p>Streamline inventory management by tracking spare parts.</p>
             </div>
             <div className="feature">
-            <FontAwesomeIcon className='icon' icon={faMoneyBill} style={{color: "#009a7f", width:"40rem"}} />
-            <h3>Invoicing and Billing</h3>
-            <p>Streamline the
-                invoicing process and generate accurate and professional
-                invoices.</p>
+              <FontAwesomeIcon
+                className="icon"
+                icon={faMoneyBill}
+                style={{ color: "#009a7f", width: "40rem" }}
+              />
+              <h3>Invoicing and Billing</h3>
+              <p>
+                Streamline the invoicing process and generate accurate and
+                professional invoices.
+              </p>
             </div>
           </div>
           <p className="about-p">
-          At MecX, we prioritize exceptional customer support. Our dedicated
-          team is committed to providing prompt assistance, ensuring a smooth
-          onboarding process and ongoing support for all your needs.
+            At MecX, we prioritize exceptional customer support. Our dedicated
+            team is committed to providing prompt assistance, ensuring a smooth
+            onboarding process and ongoing support for all your needs.
           </p>
           <p className="about-p">
-          Contact us
-          today to learn more about how our system can benefit you.
+            Contact us today to learn more about how our system can benefit you.
           </p>
         </section>
         <section className="container services bg" id="services">
           <h2>
             What we <span>do</span>
           </h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-          accusamus sed veniam, repellendus quo temporibus! Quis debitis dolore
-          consequuntur repudiandae! Perferendis illo tempore tenetur quis nisi
-          optio accusantium quia adipisci neque vitae aperiam, ducimus at
-          dolorem dolores, error harum laborum recusandae hic quisquam suscipit
-          doloribus dolor vel praesentium? Est, maxime.
+          <p className="about-p">
+            Welcome to MecX – your ultimate workshop management solution.
+          </p>
+          <p className="about-p">
+            Our platform is meticulously crafted to revolutionize workshop
+            organization and administration. With MecX, we automate the entire
+            scheduling process, empowering you to effortlessly set up, modify,
+            and cancel workshop sessions.
+          </p>
+          <p className="about-p">
+            Emphasizing convenience, attendee registration is streamlined,
+            enabling participants to easily sign up for workshops online. Say
+            goodbye to tedious paperwork and hello to secure online payment
+            processing, lightening the administrative burden for organizers.
+            MecX takes care of the details, so you can focus on what truly
+            matters –exceptional workshop services for your cars.
+          </p>
         </section>
         <section className="container book bg" id="book">
           <h2>
             Book <span>Now</span>
           </h2>
-          <p className="about-p">
-            Want to book an Appointment with us?
-          </p>
+          <p className="about-p">Want to book an Appointment with us?</p>
           <p className="about-p">Click the button below to login</p>
-          <a href='/user/login' className="btn-book">Log In</a>
+          <a href="/user/login" className="btn-book">
+            Log In
+          </a>
         </section>
         <section className="container contact bg" id="contact">
           <h2>
             Contact <span>Us</span>
           </h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-          accusamus sed veniam, repellendus quo temporibus! Quis debitis dolore
-          consequuntur repudiandae! Perferendis illo tempore tenetur quis nisi
-          optio accusantium quia adipisci neque vitae aperiam, ducimus at
-          dolorem dolores, error harum laborum recusandae hic quisquam suscipit
-          doloribus dolor vel praesentium? Est, maxime.
+          <p className="about-p">
+            If you have any questions or need assistance, feel free to reach out
+            to us:
+            <ul>
+              <li>Phone: 12345678 </li>
+              <li>Email: xyz@gmail.com </li>
+            </ul>
+          </p>
+          <p className="about-p">
+            Our customer support team is here to help you!
+          </p>
+          <p className="about-p">
+            We welcome your feedback and suggestions to improve our system and
+            make it even better for you. Let us know how we can assist you.
+          </p>
         </section>
       </div>
       <footer>
-        <p>Copyright of mecX 2023 | <a target='_blank' href="https://stock.adobe.com" className="link">Images and Videos by Adobe Stock</a> | <a href='/devs' className="link"> Meet the Developers</a></p>
+        <p>
+          Copyright of mecX 2023 |{" "}
+          <a rel="noopener" href="https://stock.adobe.com" className="link">
+            Images and Videos by Adobe Stock
+          </a>{" "}
+          |{" "}
+          <a href="/devs" className="link">
+            {" "}
+            Meet the Developers
+          </a>
+        </p>
       </footer>
     </div>
   );

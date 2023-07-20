@@ -3,13 +3,11 @@ import { useNavigate } from "react-router";
 import './styles/login.css'
 import logo from './Images/output.png'
 
-export default function Emplog(){
+export default function AdminLogin(){
     const [empid, setEmp] = useState();
     const [password, setPassword] = useState('');
     const[success,setSuccess] = useState('')
-    const [phone,setPhone] = useState('') 
     const [name,setName] = useState('')
-    const [category,setCat] = useState('')
 
     const navigate = useNavigate();
 
@@ -19,16 +17,12 @@ export default function Emplog(){
     const home =()=>{
         navigate('/')
     }
-    const handleEmail = (e) => {
-        setEmp(parseInt(e.target.value));
-        setSubmitted(false);
-    }
+
     const handlePassword = (e) => {
         setPassword(e.target.value);
         setSubmitted(false);
     };
     var data = {
-        "Empid": empid,
         "Password": password,
     }
     const handleSubmit = (e) => {
@@ -37,7 +31,7 @@ export default function Emplog(){
             setError(true);
         } 
         else {
-            fetch("http://localhost:8080/emplogin", {
+            fetch("http://localhost:8080/adminlogin", {
             method: "POST", 
             mode: "cors",
             // Adding headers to the request
@@ -49,21 +43,14 @@ export default function Emplog(){
             })
             // Converting to JSON
             .then(response =>response.json()).then((json) => {
-                setSuccess(json.Success)
-                setPhone(json.Phone)
                 setName(json.Name)
-                setCat(json.Category)
+                setSuccess('true')
             })
             // Displaying results to console
             if(success === 'true'){
                 setSubmitted(true);
+                navigate('/admin/dashboard',{state:{Name: name}})
                 setError(false);
-                navigate('/emp/dashboard', {state: {
-                    Name: name,
-                    Phone: phone,
-                    Category: category,
-                    Empid: empid
-                }})
             }
             else{
                 setError(true)
@@ -90,15 +77,14 @@ export default function Emplog(){
         <div className='headings-text'>
             <img src={logo} className='logo-login' alt='logo' onClick={home}/>
             <h2>M . E . C . X</h2>
-            <p>Staff Login</p>    
+            <p>Admin Login</p>    
         </div>
         </div>
         <div className='login-card'>
             <div className="login-cred">
             <h1>Welcome</h1>
-            <p className='desc'>Login to get started</p>
+            <p className='desc'>Login as Administrator</p>
           <form>
-            <input onChange={handleEmail} value={empid} type='text'className="textbox" placeholder='Employee ID'/><br></br>
             <input onChange={handlePassword} value={password} type='password' className='textbox' placeholder='Password'/><br></br>
 
             <div className="buttons">
@@ -112,5 +98,4 @@ export default function Emplog(){
         </div>
     </div>
     )
-    
 }

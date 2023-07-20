@@ -7,6 +7,8 @@ import Dashboard from './Dashboard';
 import Emplog from "./Emplog";
 import Empdashboard from './Empdashboard';
 import Error from './Error';
+import AdminLogin from './AdminLogin';
+import AdminDashboard from './AdminDashboard';
 
 function App() {
   return (
@@ -15,9 +17,11 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path="/user/login" element={<Login/>}/>
       <Route path="/emp/login" element={<Emplog/>}/>
+      <Route path="/admin" element={<AdminLogin/>}/>
       <Route path="/signup" element={<Usercreate/>}/>
       <Route path='/user/dashboard' element={<Dashboard/>}/>
       <Route path='/emp/dashboard' element={<Empdashboard/>}/>
+      <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
     </Routes>
   );
 }
