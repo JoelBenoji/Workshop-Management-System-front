@@ -173,3 +173,14 @@ td{
     width:94vw;
     margin-bottom: 4vh;
 }
+.employees, .users{
+    width:94vw;
+    height: 85vh;
+}
+.table-users{
+    height: 63vh;
+    overflow-y: scroll;
+}
+.table-employees{
+    width: 92vw;
+}

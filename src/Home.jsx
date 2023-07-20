@@ -11,6 +11,7 @@ import {
   faClock,
   faWarehouse,
   faMoneyBill,
+  faCarCrash,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(faCalendarCheck);
 library.add(faClock);
@@ -63,6 +64,11 @@ export default function Home() {
           <li>
             <a href="#contact" className="link">
               Contact
+            </a>
+          </li>
+          <li>
+            <a href='/emergency' className="link">
+              Emergency
             </a>
           </li>
           <li>
@@ -139,22 +145,13 @@ export default function Home() {
             <div className="feature">
               <FontAwesomeIcon
                 className="icon"
-                icon={faWarehouse}
+                icon={faCarCrash}
                 style={{ color: "#009a7f", width: "40rem" }}
               />
-              <h3>Inventory Control</h3>
-              <p>Streamline inventory management by tracking spare parts.</p>
-            </div>
-            <div className="feature">
-              <FontAwesomeIcon
-                className="icon"
-                icon={faMoneyBill}
-                style={{ color: "#009a7f", width: "40rem" }}
-              />
-              <h3>Invoicing and Billing</h3>
+              <h3>Emergency Services</h3>
               <p>
-                Streamline the invoicing process and generate accurate and
-                professional invoices.
+                Track the progress of every job, from initial intake to
+                completion.
               </p>
             </div>
           </div>

@@ -9,6 +9,7 @@ import Empdashboard from './Empdashboard';
 import Error from './Error';
 import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
+import Emergency from './Emergency';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/user/dashboard' element={<Dashboard/>}/>
       <Route path='/emp/dashboard' element={<Empdashboard/>}/>
       <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
+      <Route path='/emergency' element={<Emergency/>}/>
     </Routes>
   );
 }
