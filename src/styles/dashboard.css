@@ -31,7 +31,7 @@ body{
 }
 .cards{
     display: flex;
-    width: 90vw;
+    width: 98.5vw;
 }
 .card{
     padding: 1vh 3vh;
@@ -61,7 +61,8 @@ body{
 }
 .appointments{
     width: 94vw;
-    height: 50vh;
+    height: 55vh;
+    margin-bottom: 4vh;
 }
 .booking{
     width:35vw;
@@ -109,8 +110,8 @@ body{
     margin-bottom: 3vh;
 }
 .table{
-    height: 30vh;
-    overflow: scroll;
+    height: 35vh;
+    overflow-y: scroll;
 }
 table{
     border-collapse: collapse;
@@ -145,6 +146,7 @@ td{
 .table-joblist{
     width: 94vw;
     overflow-y: scroll;
+    margin-bottom:5vh;
 }
 .table-joblist thead{
     height: 5vh;
@@ -153,7 +155,7 @@ td{
     height: 35vh;
 }
 .table-joblist tbody tr{
-    height: 1vh;
+    height: 2vh;
 }
 .table-joblist p{
     margin-bottom: 1%;
@@ -165,4 +167,9 @@ td{
 }
 .accept{
     width:10vw;
+}
+.currjob{
+    min-height: 50vh;
+    width:94vw;
+    margin-bottom: 4vh;
 }

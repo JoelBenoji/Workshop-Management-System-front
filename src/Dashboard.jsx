@@ -10,6 +10,7 @@ export default function Dashboard() {
   const [date, setDate] = useState();
   const [desc, setDesc] = useState();
   const [list, setList] = useState([]);
+  const [value,setValue] = useState();
 
   //Appointment Table Setter
   const Location = useLocation();
@@ -35,10 +36,10 @@ export default function Dashboard() {
       })
         .then((response) => response.json())
         .then((json) => {
-          setList(json);
+            setList(json);
+            setValue(list.length - 1)
         });
-    }, []);
-    
+    },[value]);
   //Appointment Set Date Constraints
   var datenow = new Date();
   var currentdate = datenow.toISOString().slice(0, 10).replace(/-/g, "");
@@ -52,6 +53,26 @@ export default function Dashboard() {
   const nav = () => {
     navigate("/user/login", { replace: true });
   };
+
+  //Payment Function
+  const payment=()=>{
+    fetch('http://localhost:8080/user/dashboard/payment',{
+      method: "post",
+        mode: "cors",
+        // Adding headers to the request
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({
+          'Status' : 'Paid',
+          'id': list[value]._id
+        })
+    })
+    alert('Payment of Rs ' + list[value].Amount + ' is Successful')
+    window.location.reload(false)
+  }
+
+  //New Appointment Submit Function
   const handleSubmit = async (e) => {
     if (desc !== null && date != null && category != null) {
       e.preventDefault();
@@ -96,6 +117,32 @@ export default function Dashboard() {
   const handlecat = (e) => {
     setCategory(e.target.value);
   };
+
+  //Tracker Card
+  const trackercard=()=>{
+    if(value > -1){
+    if(list[value].Status === 'Paid'){
+      return(
+        <div className="card">
+        <h3>Current Appointments</h3>
+        <p>You have no current Appointments</p>
+      </div>
+      )
+    }
+    else{
+      return(
+        <div className="card">
+          <h3>Current Appointment</h3>
+          <p><b>Date: </b> {list[value].Date}</p>
+          <p><b>Description: </b> {list[value].Description}</p>
+          <p><b>Status: </b> {list[value].Status}</p>
+          <p><b>Amount to pay: </b>Rs {list[value].Amount}</p>
+          <button className="payment-button" onClick={payment}>Pay Now</button>
+        </div>
+      )
+    }
+    }
+  }
 
   if (Name == null) {
     setTimeout(() => {
@@ -169,9 +216,10 @@ export default function Dashboard() {
               </div>
             </form>
           </div>
+          {trackercard()}
         </div>
         <div className="card appointments">
-          <h3>Your Appointments</h3>
+          <h3>All Appointments</h3>
           <div className="table">
             <table className="table-user">
               <thead>
