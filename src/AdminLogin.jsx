@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import './styles/login.css'
 import logo from './Images/output.png'
 
-export default function Emplog(){
+export default function AdminLogin(){
     const [empid, setEmp] = useState();
     const [password, setPassword] = useState('');
     const[success,setSuccess] = useState('')
@@ -90,15 +90,14 @@ export default function Emplog(){
         <div className='headings-text'>
             <img src={logo} className='logo-login' alt='logo' onClick={home}/>
             <h2>M . E . C . X</h2>
-            <p>Staff Login</p>    
+            <p>Admin Login</p>    
         </div>
         </div>
         <div className='login-card'>
             <div className="login-cred">
             <h1>Welcome</h1>
-            <p className='desc'>Login to get started</p>
+            <p className='desc'>Login as Administrator</p>
           <form>
-            <input onChange={handleEmail} value={empid} type='text'className="textbox" placeholder='Employee ID'/><br></br>
             <input onChange={handlePassword} value={password} type='password' className='textbox' placeholder='Password'/><br></br>
 
             <div className="buttons">
@@ -112,5 +111,4 @@ export default function Emplog(){
         </div>
     </div>
     )
-    
 }
