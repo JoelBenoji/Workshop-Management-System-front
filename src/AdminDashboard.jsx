@@ -9,6 +9,8 @@ export default function AdminDashboard() {
   const Name = Location.state.Name;
   const [emplist, setList] = useState([]);
   const [userlist, setuserList] = useState([]);
+  const [emer, setEmer] = useState();
+  const [location,setLocation] = useState('')
 
   //Log Out
   const nav = () => {
@@ -43,7 +45,68 @@ export default function AdminDashboard() {
       .then((json) => {
         setuserList(json);
       });
+
+    //Emergency
+    fetch("http://localhost:8080/admin/emergency",{
+      method: "get",
+      mode: "cors",
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }).then(
+      response=>response.json()
+    ).then(
+      json=>{
+        if(json !== null){
+          setEmer(json)
+        }
+      }
+    )
   }, []);
+
+  const markfinish =()=>{
+    fetch('http://localhost:8080/admin/emer/markfinish',{
+      method: "post",
+      mode: "cors",
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      }
+    })
+    alert("Marked as Finished")
+    window.location.reload(false)
+  }
+
+  const Emergency = () => {
+    if (emer !== undefined) {
+      setLocation("https://www.google.com/maps/place/" + emer.Latitude + ',' + emer.Longitude)
+      return (
+        <div className="card emer">
+          <h3>Emergency</h3>
+          <p>
+            <b>Name: </b>
+            {emer.Name}{" "}
+          </p>
+          <p>
+            <b>Phone: </b>
+            {emer.Phone}{" "}
+          </p>
+          <p>
+            <b>Description: </b>
+            {emer.Description}{" "}
+          </p>
+          <a target='_blank' href={location}>
+            <button className="emer-button">Show Location in Map</button>
+          </a>
+          <a target='_blank' href={'tel:' + emer.Phone}>
+            <button className="emer-button">Call</button>
+          </a>
+            <button className="emer-button" onClick={markfinish}>Mark as Finished</button>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="dashboard">
@@ -54,6 +117,7 @@ export default function AdminDashboard() {
         </h2>
         <button onClick={nav}>Log Out</button>
       </div>
+      <Emergency />
       <div className="card employees">
         <h3>Employees</h3>
         <table className="table-employees">
@@ -88,28 +152,28 @@ export default function AdminDashboard() {
       <div className="card users">
         <h3>Users</h3>
         <div className="table-users">
-        <table className="table-employees">
-          <thead>
-            <tr>
-              <td>Name</td>
-              <td>Email</td>
-              <td>Make</td>
-              <td>Model</td>
-            </tr>
-          </thead>
-          <tbody>
-            {userlist.map((item)=>{
-              return(
-                <tr>
-                <td>{item.Name}</td>
-                <td>{item.Email}</td>
-                <td>{item.Make}</td>
-                <td>{item.Model}</td>
+          <table className="table-employees">
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Make</td>
+                <td>Model</td>
               </tr>
-              )
-            })}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {userlist.map((item) => {
+                return (
+                  <tr>
+                    <td>{item.Name}</td>
+                    <td>{item.Email}</td>
+                    <td>{item.Make}</td>
+                    <td>{item.Model}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

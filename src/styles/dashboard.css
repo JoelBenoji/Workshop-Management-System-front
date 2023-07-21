@@ -184,3 +184,11 @@ td{
 .table-employees{
     width: 92vw;
 }
+.emer{
+    text-align: center;
+    width: 94vw;
+}
+.emer-button{
+    width: 15vw;
+    margin: 5vh 3vw;
+}

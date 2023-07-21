@@ -204,8 +204,8 @@ export default function Home() {
             If you have any questions or need assistance, feel free to reach out
             to us:
             <ul>
-              <li>Phone: 12345678 </li>
-              <li>Email: xyz@gmail.com </li>
+              <li>Phone: 9544740014 </li>
+              <li>Email: vijayanarjun4@gmail.com </li>
             </ul>
           </p>
           <p className="about-p">

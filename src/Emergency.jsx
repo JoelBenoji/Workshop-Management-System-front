@@ -25,10 +25,12 @@ export default function Emergency() {
         response=>response.json()
     ).then(
         json=>{
-            setInfo(json)
+            if(json.Name !== undefined){
+                setInfo(json)
+            }
         }
     )
-  }, info);
+  },info);
   //Handle Input Change
   const handleName = (e) => {
     setName(e.target.value);
@@ -91,7 +93,6 @@ export default function Emergency() {
       return <p className="locate-p">Location received</p>;
     }
   };
-
   //Form Module
   const Form = () => {
     if (info === undefined) {
@@ -150,7 +151,7 @@ export default function Emergency() {
         <img src={logo} />
         <h2>M . E . C . X</h2>
       </div>
-      <h1>Welcome to our Emergency Services</h1>
+      <h1>Emergency Services</h1>
       <p>Fill in the form below and our Employee will reach you shortly.</p>
       <p>
         Phone number is Required and we encourage you to provide us with as
