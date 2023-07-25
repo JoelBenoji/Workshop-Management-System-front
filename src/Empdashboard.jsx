@@ -108,6 +108,7 @@ export default function Empdashboard() {
       .then((response) => response.json())
       .then((json) => {
         alert(json.Message);
+        window.location.reload(false)
       });
   };
 
@@ -167,6 +168,7 @@ export default function Empdashboard() {
       .then((response) => response.json())
       .then((json) => {
         alert(json.Message);
+        window.location.reload(false)
       });
   };
 

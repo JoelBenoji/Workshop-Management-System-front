@@ -6,14 +6,13 @@ import logo from './Images/output.png'
 export default function Usercreate(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const[success,setSuccess] = useState('')
     const [make,setMake] = useState('') 
     const [model,setModel] = useState('');
     const [name,setName] = useState('');
     const navigate = useNavigate();
 
     const [submitted, setSubmitted] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState('');
 
     const home =()=>{
         navigate('/')
@@ -48,37 +47,22 @@ export default function Usercreate(){
             })
             // Converting to JSON
             .then(response =>response.json()).then((json) => {
-                setSuccess(json.Success)
                 setMake(json.Make)
                 setModel(json.Model)
                 setName(json.Name)
-            })
-            .then(()=>{
                 // Displaying results to console
-                if(success === 'true'){
+                if(json.Success === 'true'){
                     setSubmitted(true);
-                    navigate("/user/dashboard",{state:{Name: name, Email: email, Make:make, Model:model}})
+                    navigate("/user/dashboard",{state:{Name: json.Name, Email: json.Email, Make:json.Make, Model:json.Model}})
                 }
                 else{
-                setError(true)
+                setError(json.Success)
                 setSubmitted(false)
                 }
             })
         }
         }
 
-    // Showing error message if error is true
-    const errorMessage = () => {
-        return (
-            <div
-                className="error-message"
-                style={{
-                    display: error ? '' : 'none',
-                }}>
-                <p>Invalid details, please try again</p>
-            </div>
-        );
-    };
     return(
     <div className="container-login">
         <div className="headings">
@@ -102,7 +86,7 @@ export default function Usercreate(){
             </div>
           </form>
           <div className="messages">
-                {errorMessage()}
+                {error}
           </div>
         </div>        
         </div>

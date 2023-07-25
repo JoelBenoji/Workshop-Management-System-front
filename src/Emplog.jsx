@@ -6,7 +6,6 @@ import logo from './Images/output.png'
 export default function Emplog(){
     const [empid, setEmp] = useState();
     const [password, setPassword] = useState('');
-    const[success,setSuccess] = useState('')
     const [phone,setPhone] = useState('') 
     const [name,setName] = useState('')
     const [category,setCat] = useState('')
@@ -49,41 +48,27 @@ export default function Emplog(){
             })
             // Converting to JSON
             .then(response =>response.json()).then((json) => {
-                setSuccess(json.Success)
                 setPhone(json.Phone)
                 setName(json.Name)
                 setCat(json.Category)
+                if(json.Success === 'true'){
+                    navigate('/emp/dashboard', {state: {
+                        Name: json.Name,
+                        Phone: json.Phone,
+                        Category: json.Category,
+                        Empid: empid
+                    }})
+                    setSubmitted(true);
+                    setError(json.Success)
+                }
+                else{
+                    setError(json.Success)
+                    setSubmitted(false)
+                }
             })
-            // Displaying results to console
-            if(success === 'true'){
-                setSubmitted(true);
-                setError(false);
-                navigate('/emp/dashboard', {state: {
-                    Name: name,
-                    Phone: phone,
-                    Category: category,
-                    Empid: empid
-                }})
-            }
-            else{
-                setError(true)
-                setSubmitted(false)
-            }
         }
         }
 
-    // Showing error message if error is true
-    const errorMessage = () => {
-        return (
-            <div
-                className="error-message"
-                style={{
-                    display: error ? '' : 'none',
-                }}>
-                <p>Invalid details, please try again</p>
-            </div>
-        );
-    };
     return(
     <div className="container-login">
         <div className="headings">
@@ -106,7 +91,7 @@ export default function Emplog(){
             </div>
           </form>
           <div className="messages">
-                {errorMessage()}
+                {error}
           </div>
         </div>        
         </div>
