@@ -114,8 +114,8 @@ body{
     overflow-y: scroll;
 }
 table{
-    border-collapse: collapse;
     text-align: center;
+    border-collapse: collapse;
 }
 .table-user{
     width: 92vw;
@@ -125,8 +125,15 @@ table{
 }
 td{
     height: 10vh;
-    border: 1px solid white;
-    border-collapse: collapse;
+}
+thead{
+    background-color: #1e1e1e;
+}
+tbody{
+    background-color: #04533f;
+}
+tbody td{
+    border-bottom: 1px solid #1e1e1e;
 }
 .booking input{
     background-color: #c0c0c0;
@@ -145,7 +152,6 @@ td{
 }
 .table-joblist{
     width: 94vw;
-    overflow-y: scroll;
     margin-bottom:5vh;
 }
 .table-joblist thead{

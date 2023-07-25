@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 export default function Usercreate(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [emailflag, setEmailflag] = useState();
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
     const [password, setPassword] = useState('');
@@ -103,7 +104,7 @@ export default function Usercreate(){
                     navigate('/user/login')
                 }
                 else{
-                    setError('Invalid details, missing or already exists')
+                    setError(json.Status)
                 }
             })
             // Displaying results to console
@@ -125,8 +126,8 @@ export default function Usercreate(){
         <p>Fill in the form to create an account.</p>
           <form>
             <input onChange={handleName} value={name} type='text' placeholder='Name'/><br></br>
-            <input onChange={handleEmail} value={email} type='text' placeholder='Email'/><br></br>
-            <input onChange={handlePassword} value={password} type='text' placeholder='Password'/><br></br>
+            <input onChange={handleEmail} value={email} type='email' placeholder='Email'/><br></br>
+            <input onChange={handlePassword} value={password} type='text' min='6' placeholder='Password'/><br></br>
             <div className="select">
             <select value={selected} onChange={handleMake}>
               {makes.map((item) => {

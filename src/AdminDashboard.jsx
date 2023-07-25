@@ -77,7 +77,15 @@ export default function AdminDashboard() {
     alert("Marked as Finished")
     window.location.reload(false)
   }
-
+  const Locationbutton=()=>{
+    if(emer.Latitude !== null){
+      return(
+        <a target='_blank' href={location}>
+              <button className="emer-button">Show Location in Map</button>
+            </a>
+      )
+    }
+  }
   const Emergency = () => {
     if (emer !== undefined) {
       setLocation("https://www.google.com/maps/place/" + emer.Latitude + ',' + emer.Longitude)
@@ -96,9 +104,7 @@ export default function AdminDashboard() {
             <b>Description: </b>
             {emer.Description}{" "}
           </p>
-          <a target='_blank' href={location}>
-            <button className="emer-button">Show Location in Map</button>
-          </a>
+          {Locationbutton()}
           <a target='_blank' href={'tel:' + emer.Phone}>
             <button className="emer-button">Call</button>
           </a>
