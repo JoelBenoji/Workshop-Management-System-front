@@ -10,6 +10,7 @@ import Error from './Error';
 import AdminLogin from './AdminLogin';
 import AdminDashboard from './AdminDashboard';
 import Emergency from './Emergency';
+import Devs from './Devs';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path='/emp/dashboard' element={<Empdashboard/>}/>
       <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
       <Route path='/emergency' element={<Emergency/>}/>
+      <Route path='/devs' element={<Devs/>}/>
     </Routes>
   );
 }
