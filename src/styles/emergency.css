@@ -52,3 +52,19 @@
     font-size: 1rem !important;
     margin: 4vh 0 !important;
 }
+
+@media only screen and (max-width: 900px) {
+    .content-emergency h1{
+        font-size: 3rem;
+    }
+    .content-emergency p {
+        margin: 5vh 0;
+        padding: 0 5vw;
+    }
+    .em-logo h2{
+        font-size: 1.5rem;
+    }
+    .em-form h2{
+        font-size: 1.5rem;
+    }
+}

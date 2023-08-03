@@ -198,3 +198,11 @@ tbody td{
     width: 15vw;
     margin: 5vh 3vw;
 }
+.admin-button{
+    width: 10vw;
+    margin: 0%;
+}
+.appoint{
+    width: 94vw;
+    padding-bottom: 5vh;
+}

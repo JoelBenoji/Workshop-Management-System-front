@@ -57,7 +57,11 @@ export default function Dashboard() {
 
   //Payment Function
   const payment=()=>{
-    fetch('http://localhost:8080/user/dashboard/payment',{
+    if(list[value].Amount === undefined){
+      alert('Please pay after the job is finished')
+    }
+    else{
+      fetch('http://localhost:8080/user/dashboard/payment',{
       method: "post",
         mode: "cors",
         // Adding headers to the request
@@ -67,10 +71,11 @@ export default function Dashboard() {
         body: JSON.stringify({
           'Status' : 'Paid',
           'id': list[value]._id
-        })
-    })
-    alert('Payment of Rs ' + list[value].Amount + ' is Successful')
-    window.location.reload(false)
+        }) 
+      })
+      alert('Payment of Rs ' + list[value].Amount + ' is Successful')
+      window.location.reload(false)
+    }
   }
 
   //New Appointment Submit Function
@@ -228,6 +233,7 @@ export default function Dashboard() {
                   <td>Category</td>
                   <td>Description</td>
                   <td>Status</td>
+                  <td>Amount</td>
                 </tr>
               </thead>
               <tbody>
@@ -238,6 +244,7 @@ export default function Dashboard() {
                       <td>{item.Category}</td>
                       <td>{item.Description}</td>
                       <td>{item.Status}</td>
+                      <td>{item.Amount}</td>
                     </tr>
                   );
                 })}

@@ -86,7 +86,14 @@ export default function Empdashboard() {
       },
       // Adding body or contents to send
       body: JSON.stringify(data),
-    });
+    }).then(
+      response=>response.json()     
+    ).then(
+      json=>{
+        alert(json.Status)
+        window.location.reload(false)
+      } 
+    )
   };
 
   //Take A Job
