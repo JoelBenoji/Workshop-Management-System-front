@@ -9,6 +9,7 @@ export default function AdminDashboard() {
   const Name = Location.state.Name;
   const [emplist, setList] = useState([]);
   const [userlist, setuserList] = useState([]);
+  const [appointlist, setappointList] = useState([]);
   const [emer, setEmer] = useState();
   const [location,setLocation] = useState('')
 
@@ -16,6 +17,25 @@ export default function AdminDashboard() {
   const nav = () => {
     navigate("/admin", { replace: true });
   };
+
+  //Verify
+  const handleVerify = (index)=>{
+    appointlist[index].Status = 'Verified'
+    console.log(appointlist[index])
+    fetch("http://localhost:8080/admin/verify", {
+      method: "post",
+      mode: "cors",
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(appointlist[index]),
+    }).then(
+      json=>{
+        alert(json.Status)
+      }
+    )
+  }
 
   useEffect(() => {
     //Employee List
@@ -63,8 +83,20 @@ export default function AdminDashboard() {
         }
       }
     )
+    //Appointments
+  fetch("http://localhost:8080/admin/appointments", {
+    method: "get",
+      mode: "cors",
+      // Adding headers to the request
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+  }).then(
+    response=>response.json()
+  ).then(
+    json=>setappointList(json)
+  )
   }, []);
-
   const markfinish =()=>{
     fetch('http://localhost:8080/admin/emer/markfinish',{
       method: "post",
@@ -113,7 +145,45 @@ export default function AdminDashboard() {
       );
     }
   };
-
+  const Appoint=()=>{
+    if(appointlist.length === 0){
+      return(
+        <div className="card appoint">
+          <h3>Verify Appointments</h3>
+          <p>No pending appointments</p>
+        </div>
+      )
+    }
+    else{
+      return(
+        <div className="card appoint">
+          <h3>Verify Appointments</h3>
+          <table className="table-employees">
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Category</td>
+                <td>Description</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+          <tbody>
+              {appointlist.map((item,index) => {
+                return (
+                  <tr>
+                    <td>{item.Name}</td>
+                    <td>{item.Category}</td>
+                    <td>{item.Description}</td>
+                    <td><button onClick ={()=>handleVerify(index)} className="admin-button">Verify</button></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+  }
   return (
     <div className="dashboard">
       <div className="heading">
@@ -124,6 +194,7 @@ export default function AdminDashboard() {
         <button onClick={nav}>Log Out</button>
       </div>
       <Emergency />
+      <Appoint/>
       <div className="card employees">
         <h3>Employees</h3>
         <table className="table-employees">
